@@ -1,10 +1,12 @@
 import logging, re
 
 from datetime import datetime
-from listeners import Listener
+from . import Listener
 
 YELL = 2
 EMPHASIZE = 5
+
+logger = logging.getLogger(__name__)
 
 class WhoRides(Listener):
     regex = re.compile("^\*?\*?who rides\?\*?\*?$", re.IGNORECASE)
@@ -14,15 +16,15 @@ class WhoRides(Listener):
         return self.regex.match(message.content)
 
     async def action(self, message):
-        logging.info('Responding to %s from %s', message.content, message.author.nick)
+        logger.info('Responding to "%s" from "%s"', message.content, message.author.nick)
         now = datetime.now()
         delta = (now - self.timer).total_seconds()
-        logging.debug('delta: %s', delta);
+        logger.debug('delta: %s', delta)
 
         if delta < YELL:
             await message.channel.send('WE RIDE!!!')
         elif delta < EMPHASIZE:
-            await message.channel.send('We Ride!')
+            await message.channel.send('We Ride!!')
         else:
             await message.channel.send('We Ride!')
 
