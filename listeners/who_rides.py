@@ -1,4 +1,4 @@
-import re
+import logging, re
 
 from datetime import datetime
 from listeners import Listener
@@ -14,8 +14,10 @@ class WhoRides(Listener):
         return self.regex.match(message.content)
 
     async def action(self, message):
+        logging.info('Responding to %s from %s', message.content, message.author.nick)
         now = datetime.now()
         delta = (now - self.timer).total_seconds()
+        logging.debug('delta: %s', delta);
 
         if delta < YELL:
             await message.channel.send('WE RIDE!!!')
