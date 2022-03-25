@@ -20,7 +20,12 @@ intents.members = True
 
 bot = nextcord.Client(intents=intents)
 
+from . import listeners
+
+listeners.attach(bot)
+
 def start(token):
+    logger.info('Starting...')
     bot.run(token)
 
 @bot.event
