@@ -4,10 +4,12 @@ logger = logging.getLogger(__name__)
 
 from .cheer import *
 from .meta import *
+from .tba import *
 
 commands = [
     Cheer,
-    Meta
+    Meta,
+    TBA
 ]
 
 def register(bot):

@@ -16,6 +16,7 @@ protobuf==3.10.0
 python-dotenv==0.19.2
 requests==2.26.0
 six==1.16.0
+tbapy==1.3.2
 urllib3==1.26.7
 wyze-sdk==1.2.2
 yarl==1.7.2
