@@ -6,15 +6,10 @@ from .cheer import *
 from .meta import *
 from .tba import *
 
-commands = [
-    Cheer,
-    Meta,
-    TBA
-]
+commands = [Cheer, Meta, TBA]
+
 
 def register(bot):
-    global commands
-
     for command in commands:
         cog = command(bot)
         logger.debug('Registering cog "%s"', cog.qualified_name)
