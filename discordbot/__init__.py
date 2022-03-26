@@ -2,9 +2,8 @@ from . import commands
 
 from nextcord.ext import commands as cmd
 
-import logging, re, os, sys
+import logging, sys
 import nextcord
-import tbapy
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -19,6 +18,7 @@ intents.members = True
 bot = cmd.Bot(intents=intents)
 commands.register(bot)
 
+
 def start(token):
-    logger.info('Starting...')
+    logger.info("Starting...")
     bot.run(token)

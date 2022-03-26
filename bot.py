@@ -4,4 +4,4 @@ import os, discordbot
 
 load_dotenv()
 
-discordbot.start(os.getenv('BOT_TOKEN'))
+discordbot.start(os.getenv("BOT_TOKEN"))
