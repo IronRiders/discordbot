@@ -5,6 +5,8 @@ from datetime import datetime
 import nextcord
 from nextcord.ext import commands
 
+logger = logging.getLogger(__name__)
+
 
 class Cheer(commands.Cog):
     YELL = 2
@@ -22,7 +24,6 @@ class Cheer(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
-        self.logger = logging.getLogger(__name__)
         self.timer = datetime.now()
 
     def timer_update(self) -> float:
@@ -35,14 +36,14 @@ class Cheer(commands.Cog):
     async def on_message(self, message: nextcord.Message):
         for cheer_command_response in self.CHEER_COMMAND_RESPONSES:
             if cheer_command_response["command"].match(message.content):
-                response = cheer_command_response["response"]
+                response: str = cheer_command_response["response"]
             else:
                 continue
             delta = self.timer_update()
             author = message.author
             author = author if author.nick is None else author.nick  # If has nickname
-            self.logger.info('Responding to "%s" from "%s"', message.content, author)
-            self.logger.debug("delta: %s", delta)
+            logger.info('Responding to "%s" from "%s"', message.content, author)
+            logger.debug("delta: %s", delta)
 
             if delta < self.YELL:
                 message_text = response.upper() + "!!"
