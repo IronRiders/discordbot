@@ -1,5 +1,7 @@
+# A lead or mentor must approve any change
 * @IronRiders/mentors
 * @IronRiders/student-leaders
 
+# Since the bot runs on John's hardware, deployment config changes must be reviewed by him.
 /Dockerfile @johnluetke
-/docker-compose @johnluetke
+/docker-compose.yml @johnluetke
