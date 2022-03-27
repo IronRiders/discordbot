@@ -32,11 +32,13 @@ class TBA(commands.Cog):
 
         embed = nextcord.Embed()
         embed.title = info.nickname
-        embed.url = info.website
+        embed.url = f"https://www.thebluealliance.com/team/{info.team_number}"
         embed.add_field(name="Team Number", value=info.team_number)
+        embed.add_field(name="School", value=info.school_name)
         embed.add_field(
             name="Location", value=f"{info.city}, {info.state_prov}, {info.country}"
         )
         embed.add_field(name="Rookie Year", value=info.rookie_year)
+        embed.add_field(name="Website", value=info.website)
 
         await ctx.send(embed=embed)
