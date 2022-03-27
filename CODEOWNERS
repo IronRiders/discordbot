@@ -1,2 +1,5 @@
-@IronRiders/mentors
-@IronRiders/student-leaders
+* @IronRiders/mentors
+* @IronRiders/student-leaders
+
+/Dockerfile @johnluetke
+/docker-compose @johnluetke
