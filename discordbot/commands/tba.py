@@ -9,7 +9,6 @@ from nextcord.ext import commands
 load_dotenv()
 logger = logging.getLogger(__name__)
 
-
 class TBA(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
