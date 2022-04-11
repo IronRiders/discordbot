@@ -15,7 +15,7 @@ all_commands: List[commands.Cog] = [Cheer, Meta, TBA]
 def register(bot: commands.Bot):
     for command in all_commands:
         cog: commands.Cog = command(bot)
-        logger.debug('Registering cog "%s"', cog.qualified_name)
+        logger.debug('Registering command cog "%s"', cog.qualified_name)
         for c in cog.get_commands():
             logger.debug('Added command "%s" from cog "%s"', c.name, cog.qualified_name)
 
