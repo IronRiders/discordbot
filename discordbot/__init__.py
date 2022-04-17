@@ -15,6 +15,7 @@ logger.addHandler(console)
 
 intents = nextcord.Intents.default()
 intents.members = True
+intents.messages = True
 
 bot = cmd.Bot(intents=intents, command_prefix="!")
 commands.register(bot)
