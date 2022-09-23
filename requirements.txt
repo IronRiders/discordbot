@@ -23,7 +23,7 @@ mypy-extensions==0.4.3
 nextcord==2.0.0a10
 pathspec==0.9.0
 platformdirs==2.5.1
-protobuf==3.10.0
+protobuf==3.18.3
 pylint==2.13.0
 python-dotenv==0.19.2
 requests==2.26.0
