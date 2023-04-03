@@ -7,7 +7,9 @@ import dev.sbsteveyhops.Listeners.WelcomeMessage;
 import io.github.cdimascio.dotenv.Dotenv;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.requests.GatewayIntent;
+import net.dv8tion.jda.internal.utils.JDALogger;
 
 public class Bot {
     public static Dotenv dotenv = Dotenv.load();
@@ -26,5 +28,7 @@ public class Bot {
             )
             .build();
 
-    public static void main(String[] args) {}
+    public static void main(String[] args) {
+        JDALogger.getLog("Bot").info("Invite URL (ADMIN PERMS): " + jda.getInviteUrl(Permission.ADMINISTRATOR));
+    }
 }
