@@ -1,5 +1,6 @@
 package dev.sbsteveyhops;
 
+import dev.sbsteveyhops.Commands.ChantsCommand;
 import dev.sbsteveyhops.Commands.InitializeCommands;
 import dev.sbsteveyhops.Listeners.Chants;
 import dev.sbsteveyhops.Listeners.WelcomeMessage;
@@ -18,6 +19,7 @@ public class Bot {
                     GatewayIntent.MESSAGE_CONTENT
             )
             .addEventListeners(
+                    new ChantsCommand(),
                     new InitializeCommands(),
                     new Chants(),
                     new WelcomeMessage()

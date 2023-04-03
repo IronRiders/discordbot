@@ -47,7 +47,7 @@ public class WelcomeMessage extends ListenerAdapter {
         TextInput nickname = TextInput
                 .create("nickname", "Enter Nickname:", TextInputStyle.SHORT)
                 .setRequired(true)
-                .setPlaceholder("nickname")
+                .setPlaceholder("Nickname")
                 .build();
 
         event.replyModal(
@@ -70,7 +70,7 @@ public class WelcomeMessage extends ListenerAdapter {
         event.replyEmbeds(new EmbedBuilder()
                         .setTitle("Nickname changed!")
                         .setColor(new Color(0xFDC20F))
-                        .setFooter("Go to #welcome to complete membership")
+                        .setFooter("Go to the #start-here channel to complete membership")
                         .setTimestamp(new Date().toInstant())
                 .build()
         ).queue();

@@ -15,7 +15,7 @@ public class Chants extends ListenerAdapter {
         if (message.contains("who are we")) { send("Iron Riders!", event); return; }
         if (message.contains("how hungry")) { send("Famished!", event); return; }
         if (message.contains("for what")) { send("Victory!", event); return; }
-        if (message.contains("iron")) { send("Riders!", event); return; }
+        if (message.equals("iron")) { send("Riders!", event); return; }
         if (message.contains("go riders")) { send(claps, event); return; }
         if (message.equals("41")) { send("80", event); return; }
         if (message.equals("iron riders")) {
