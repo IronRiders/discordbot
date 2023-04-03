@@ -2,10 +2,10 @@
 The Discord bot in the Iron Riders' discord server.
 
 ### How to execute:
-* Clone GitHub in intellij
+* Clone GitHub in intellij.
 * Create a file named `.env` in the projects top level directory.
   * Paste text below into the `.env` you created.
-  ```lombok.config
+  ```properties
   TOKEN=BOT_TOKEN
   ```
   * Replace `BOT_TOKEN` with your bot token.
