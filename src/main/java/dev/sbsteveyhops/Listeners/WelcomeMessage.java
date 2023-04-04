@@ -1,9 +1,9 @@
 package dev.sbsteveyhops.Listeners;
 
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.events.interaction.ModalInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
-import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
 import net.dv8tion.jda.api.interactions.components.text.TextInput;
@@ -16,17 +16,18 @@ import java.util.Objects;
 
 public class WelcomeMessage extends ListenerAdapter {
     @Override
-    public void onMessageReceived(MessageReceivedEvent event) {
-        if (event.getAuthor().isBot()) { return; }
+    public void onGuildMemberJoin(GuildMemberJoinEvent event) {
+        if (event.getUser().isBot()) { return; }
 
-        event.getAuthor().openPrivateChannel().complete().sendMessageEmbeds(
+        event.getUser().openPrivateChannel().complete().sendMessageEmbeds(
                 new EmbedBuilder()
                         .addField("Welcome to the Iron Riders discord server, " +
-                                event.getAuthor().getName() + "!",
-                                "The Iron Riders discord server requires you to set " +
-                                "your nickname. We recommend that you set it to " +
-                                "your actual name, or whatever everyone at school refers to " +
-                                "you as.", false)
+                                event.getUser().getName() + "!",
+                                """
+                                The Iron Riders discord server requires you to set your nickname. We recommend that you
+                                set it to your actual name, or whatever everyone at school refers to you as.
+                                """,
+                                false)
                         .setColor(new Color(0xFDC20F))
                 .build(),
                 new EmbedBuilder()

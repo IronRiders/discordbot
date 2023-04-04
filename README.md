@@ -14,9 +14,11 @@ The Discord bot in the Iron Riders' discord server.
 
 Note: This bot must have message content intent enabled to function.
 
-### Help
-Ping `@Software` for help.
+### How to contribute:
+* Fork the repository.
+* Make your changes.
+* Test your changes.
+* Create a pull request.
 
-### Version History
-* 1.1.1 
-  * Initial commit
+### Help:
+Ping `@Software` for help.

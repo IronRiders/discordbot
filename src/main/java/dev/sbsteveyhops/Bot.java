@@ -1,6 +1,7 @@
 package dev.sbsteveyhops;
 
 import dev.sbsteveyhops.Commands.ChantsCommand;
+import dev.sbsteveyhops.Commands.Help;
 import dev.sbsteveyhops.Commands.InitializeCommands;
 import dev.sbsteveyhops.Listeners.Chants;
 import dev.sbsteveyhops.Listeners.WelcomeMessage;
@@ -22,6 +23,7 @@ public class Bot {
             )
             .addEventListeners(
                     new ChantsCommand(),
+                    new Help(),
                     new InitializeCommands(),
                     new Chants(),
                     new WelcomeMessage()
