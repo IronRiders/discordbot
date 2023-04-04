@@ -15,7 +15,7 @@ The Discord bot in the Iron Riders' discord server.
 Note: This bot must have message content intent enabled to function.
 
 ### How to contribute:
-* Fork the repository.
+* Create a branch or fork the repository.
 * Make your changes.
 * Test your changes.
 * Create a pull request.
