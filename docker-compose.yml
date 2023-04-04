@@ -2,5 +2,9 @@ version: '3'
 
 services:
   discordbot:
-   image: ironriders-discordbot:latest
+   image: registry.home.johnluetke.com/ironriders/discordbot:latest
    build: .
+   container_name: ironriders-discordbot
+   environment:
+     BOT_TOKEN: _ask John_
+     TBA_TOKEN: _ask_John_

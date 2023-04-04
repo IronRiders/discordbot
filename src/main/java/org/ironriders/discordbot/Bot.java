@@ -1,12 +1,11 @@
-package dev.sbsteveyhops;
+package org.ironriders.discordbot;
 
-import dev.sbsteveyhops.Commands.ChantsCommand;
-import dev.sbsteveyhops.Commands.Help;
-import dev.sbsteveyhops.Commands.InitializeCommands;
-import dev.sbsteveyhops.Commands.TeamInfo;
-import dev.sbsteveyhops.Listeners.Chants;
-import dev.sbsteveyhops.Listeners.WelcomeMessage;
-import io.github.cdimascio.dotenv.Dotenv;
+import org.ironriders.discordbot.Commands.ChantsCommand;
+import org.ironriders.discordbot.Commands.Help;
+import org.ironriders.discordbot.Commands.InitializeCommands;
+import org.ironriders.discordbot.Commands.TeamInfo;
+import org.ironriders.discordbot.Listeners.Chants;
+import org.ironriders.discordbot.Listeners.WelcomeMessage;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.Permission;
@@ -14,10 +13,9 @@ import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.internal.utils.JDALogger;
 
 public class Bot {
-    public static Dotenv dotenv = Dotenv.load();
     public static JDA jda = JDABuilder
             .create(
-                    dotenv.get("TOKEN"),
+                    System.getenv("BOT_TOKEN"),
                     GatewayIntent.GUILD_MESSAGES,
                     GatewayIntent.DIRECT_MESSAGES,
                     GatewayIntent.MESSAGE_CONTENT

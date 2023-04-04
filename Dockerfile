@@ -1,9 +1,13 @@
-FROM python:3.8-slim-buster
+FROM maven:latest as build
+ENV HOME=/usr/app
+RUN mkdir -p $HOME
+WORKDIR $HOME
+ADD . $HOME
+RUN mvn package
 
-WORKDIR /app
+FROM openjdk:17-oracle
+RUN mkdir /opt/app
 
-COPY . .
+COPY --from=build /usr/app/target/discordbot-1.0-SNAPSHOT.jar /opt/app/app.jar
 
-RUN pip3 install -r requirements.txt
-
-CMD ["python3", "bot.py"]
+ENTRYPOINT java -jar /opt/app/app.jar

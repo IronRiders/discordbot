@@ -1,4 +1,4 @@
-package dev.sbsteveyhops.Commands;
+package org.ironriders.discordbot.Commands;
 
 import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;

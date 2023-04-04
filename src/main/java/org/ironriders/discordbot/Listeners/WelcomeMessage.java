@@ -1,4 +1,4 @@
-package dev.sbsteveyhops.Listeners;
+package org.ironriders.discordbot.Listeners;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;

@@ -2,3 +2,4 @@
 __pycache__
 # Project exclude paths
 /target/
+/.idea/

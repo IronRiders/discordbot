@@ -1,6 +1,6 @@
-package dev.sbsteveyhops.Commands;
+package org.ironriders.discordbot.Commands;
 
-import dev.sbsteveyhops.Listeners.Chants;
+import org.ironriders.discordbot.Listeners.Chants;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
