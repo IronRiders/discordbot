@@ -8,12 +8,23 @@ public class Chants extends ListenerAdapter {
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
-        if (event.getAuthor().isBot()) { return; }
+        if (event.getAuthor().isBot()) {
+            return;
+        }
 
         String message = event.getMessage().getContentRaw().toLowerCase();
-        if (message.contains("who rides")) { send("We ride!", event); return; }
-        if (message.contains("who are we")) { send("Iron Riders!", event); return; }
-        if (message.contains("how hungry")) { send("Famished!", event); return; }
+        if (message.contains("who rides")) {
+            send("We ride!", event);
+            return;
+        }
+        if (message.contains("who are we")) {
+            send("Iron Riders!", event);
+            return;
+        }
+        if (message.contains("how hungry")) {
+            send("Famished!", event);
+            return;
+        }
         if (message.contains("for what")) {
             send("Victory!", event);
             return;
