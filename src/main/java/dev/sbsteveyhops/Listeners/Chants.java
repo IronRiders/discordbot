@@ -14,12 +14,25 @@ public class Chants extends ListenerAdapter {
         if (message.contains("who rides")) { send("We ride!", event); return; }
         if (message.contains("who are we")) { send("Iron Riders!", event); return; }
         if (message.contains("how hungry")) { send("Famished!", event); return; }
-        if (message.contains("for what")) { send("Victory!", event); return; }
-        if (message.equals("iron")) { send("Riders!", event); return; }
-        if (message.contains("go riders")) { send(claps, event); return; }
-        if (message.equals("41")) { send("80", event); return; }
-        if (message.equals("red alliance") || message.equals("blue alliance")) {
-            send(claps, event); }
+        if (message.contains("for what")) {
+            send("Victory!", event);
+            return;
+        }
+        if (message.equalsIgnoreCase("iron")) {
+            send("Riders!", event);
+            return;
+        }
+        if (message.contains("go riders")) {
+            send(claps, event);
+            return;
+        }
+        if (message.equals("41")) {
+            send("80", event);
+            return;
+        }
+        if (message.equalsIgnoreCase("red alliance") || message.equalsIgnoreCase("blue alliance")) {
+            send(claps, event);
+        }
     }
     private void send(String message, MessageReceivedEvent event) {
         event.getChannel().sendMessage(message).queue();
