@@ -3,6 +3,7 @@ package dev.sbsteveyhops;
 import dev.sbsteveyhops.Commands.ChantsCommand;
 import dev.sbsteveyhops.Commands.Help;
 import dev.sbsteveyhops.Commands.InitializeCommands;
+import dev.sbsteveyhops.Commands.TeamInfo;
 import dev.sbsteveyhops.Listeners.Chants;
 import dev.sbsteveyhops.Listeners.WelcomeMessage;
 import io.github.cdimascio.dotenv.Dotenv;
@@ -25,6 +26,7 @@ public class Bot {
                     new ChantsCommand(),
                     new Help(),
                     new InitializeCommands(),
+                    new TeamInfo(),
                     new Chants(),
                     new WelcomeMessage()
             )

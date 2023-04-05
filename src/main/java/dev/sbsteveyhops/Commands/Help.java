@@ -17,12 +17,13 @@ public class Help extends ListenerAdapter {
                         .setTitle("Help")
                         .addField("Commands",
                                 """
-                                        `/help` - Gives a key of all the commands plus how to contribute.
-                                        `/chants` - Gives a key of all the chant.
-                                        """,
+                                      `/help` - Gives a key of all the commands plus how to contribute.
+                                      `/teaminfo` - Gives a link to the TBA page for the team and other team data.
+                                      `/chants` - Gives a key of all the chant.
+                                      """,
                                 false)
                         .addField("Contribute",
-                                "Go to bot's GitHub (https://github.com/SBsteveyHops/IronRidersBot) and follow" +
+                                "Go to bot's [GitHub](https://github.com/IronRiders/DiscordBotJDA) and follow" +
                                         " the contribute instructions in the `README.md`.",
                                 true)
                         .setColor(new Color(0xFDC20F))
