@@ -8,7 +8,6 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.ironriders.discordbot.Bot;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 
@@ -34,7 +33,7 @@ public class TBACommand extends ListenerAdapter {
             return unknownTeamEmbed(teamNumber);
         }
 
-        EmbedBuilder eb = null;
+        EmbedBuilder eb;
         eb = new EmbedBuilder()
                 .setTitle(team.getNickname())
                 .addField("Team Number", String.valueOf(teamNumber), true)
