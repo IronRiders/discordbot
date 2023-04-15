@@ -3,8 +3,8 @@ package org.ironriders.discordbot.Commands;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import org.ironriders.discordbot.Bot;
 
-import java.awt.*;
 import java.util.Date;
 
 public class Help extends ListenerAdapter {
@@ -26,7 +26,7 @@ public class Help extends ListenerAdapter {
                                 "Go to bot's [GitHub](https://github.com/IronRiders/DiscordBotJDA) and follow" +
                                         " the contribute instructions in the `README.md`.",
                                 true)
-                        .setColor(new Color(0xFDC20F))
+                        .setColor(Bot.secondary)
                         .setFooter("Check out the GitHub even if you don't feel like contributing!")
                         .setTimestamp(new Date().toInstant())
                         .build()

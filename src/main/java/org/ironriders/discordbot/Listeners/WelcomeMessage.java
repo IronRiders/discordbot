@@ -9,8 +9,8 @@ import net.dv8tion.jda.api.interactions.components.buttons.Button;
 import net.dv8tion.jda.api.interactions.components.text.TextInput;
 import net.dv8tion.jda.api.interactions.components.text.TextInputStyle;
 import net.dv8tion.jda.api.interactions.modals.Modal;
+import org.ironriders.discordbot.Bot;
 
-import java.awt.*;
 import java.util.Date;
 import java.util.Objects;
 
@@ -28,13 +28,13 @@ public class WelcomeMessage extends ListenerAdapter {
                                 set it to your actual name, or whatever everyone at school refers to you as.
                                 """,
                                 false)
-                        .setColor(new Color(0xFDC20F))
+                        .setColor(Bot.secondary)
                 .build(),
                 new EmbedBuilder()
                         .setTitle("Set your nickname by clicking \"Set Nickname\".")
                         .setFooter("Thanks for joining")
                         .setTimestamp(new Date().toInstant())
-                        .setColor(new Color(0x213D1C))
+                        .setColor(Bot.primary)
                 .build()
         ).addActionRow(
                 Button.success("setNickname", "Set Nickname")
@@ -70,7 +70,7 @@ public class WelcomeMessage extends ListenerAdapter {
 
         event.replyEmbeds(new EmbedBuilder()
                         .setTitle("Nickname changed!")
-                        .setColor(new Color(0xFDC20F))
+                        .setColor(Bot.secondary)
                         .setFooter("Go to the #start-here channel to complete membership")
                         .setTimestamp(new Date().toInstant())
                 .build()

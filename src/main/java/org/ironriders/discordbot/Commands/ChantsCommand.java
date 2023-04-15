@@ -1,11 +1,11 @@
 package org.ironriders.discordbot.Commands;
 
-import org.ironriders.discordbot.Listeners.Chants;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import org.ironriders.discordbot.Bot;
+import org.ironriders.discordbot.Listeners.Chants;
 
-import java.awt.*;
 import java.util.Date;
 
 public class ChantsCommand extends ListenerAdapter {
@@ -26,7 +26,7 @@ public class ChantsCommand extends ListenerAdapter {
                         .addField("41", "80", false)
                         .addField("Red/Blue Alliance! or Go Riders!", claps, false)
 
-                        .setColor(new Color(0xFDC20F))
+                        .setColor(Bot.secondary)
                         .setFooter("Suggestions? Do /help to see how to contribute!")
                         .setTimestamp(new Date().toInstant())
                 .build()
