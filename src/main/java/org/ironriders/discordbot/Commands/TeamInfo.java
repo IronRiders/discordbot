@@ -6,6 +6,7 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.ironriders.discordbot.Bot;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Random;
 
@@ -18,7 +19,7 @@ public class TeamInfo extends ListenerAdapter {
     }
 
     public MessageEmbed teamInfoEmbed() {
-        return new EmbedBuilder()
+        EmbedBuilder eb = new EmbedBuilder()
                 .setTitle("Iron Riders")
                 .setThumbnail("https://bit.ly/3m8A5dC")
                 .addField("Team Number", "4180", true)
@@ -30,10 +31,15 @@ public class TeamInfo extends ListenerAdapter {
                               [The Iron Riders' Website](https://ironriders4180.com/)
                               """,
                         true)
-                .addField("Seasons", String.valueOf(LocalDateTime.now().getYear() - 2012), true)
                 .setColor(Bot.secondary)
-                .setFooter(getFootnote())
-        .build();
+                .setFooter(getFootnote());
+        try {
+            eb.addField("Seasons",
+                    String.valueOf(Bot.tba.teamRequest.getYearsParticipated(4180).length),
+                    true);
+        } catch (IOException ignored) {}
+
+        return eb.build();
     }
 
     private String getFootnote() {

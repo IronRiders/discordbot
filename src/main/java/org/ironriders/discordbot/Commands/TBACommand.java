@@ -7,6 +7,7 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.ironriders.discordbot.Bot;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
@@ -33,16 +34,15 @@ public class TBACommand extends ListenerAdapter {
             return unknownTeamEmbed(teamNumber);
         }
 
-        EmbedBuilder eb = new EmbedBuilder()
+        EmbedBuilder eb = null;
+        eb = new EmbedBuilder()
                 .setTitle(team.getNickname())
                 .addField("Team Number", String.valueOf(teamNumber), true)
                 .addField("Location", team.getCity() + ", " + team.getStateProv(), true)
                 .addField("Rookie Year", String.valueOf(team.getRookieYear()), true)
-                .addField("Seasons",
-                        String.valueOf(LocalDateTime.now().getYear() - team.getRookieYear()),
-                        true)
                 .setColor(Bot.tbaBlue)
                 .setTimestamp(new Date().toInstant());
+
         if (team.getWebsite() != null) {
             eb.addField("Links",
                 "[The Blue Alliance](https://www.thebluealliance.com/team/" + teamNumber + ")\n" +
@@ -50,6 +50,11 @@ public class TBACommand extends ListenerAdapter {
                         "(" + team.getWebsite() + ")",
                 true);
         }
+        try {
+            eb.addField("Seasons",
+                    String.valueOf(Bot.tba.teamRequest.getYearsParticipated(teamNumber).length),
+                    true);
+        } catch (IOException ignored) {}
 
         return eb.build();
     }
