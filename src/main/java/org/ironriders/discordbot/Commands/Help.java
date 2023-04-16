@@ -18,7 +18,8 @@ public class Help extends ListenerAdapter {
                         .addField("Commands",
                                 """
                                       `/help` - Gives a key of all the commands plus how to contribute.
-                                      `/teaminfo` - Gives a link to the TBA page for the team and other team data.
+                                      `/tba`- Gives some information on any team of your choosing.
+                                      `/teaminfo` - Gives some information on our team.
                                       `/chants` - Gives a key of all the chant.
                                       """,
                                 false)
