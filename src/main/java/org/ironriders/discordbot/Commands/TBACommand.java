@@ -37,8 +37,8 @@ public class TBACommand extends ListenerAdapter {
         eb = new EmbedBuilder()
                 .setTitle(team.getNickname())
                 .addField("Team Number", String.valueOf(teamNumber), true)
-                .addField("Location", team.getCity() + ", " + team.getStateProv(), true)
-                .addField("Rookie Year", String.valueOf(team.getRookieYear()), true)
+                .addField("Location", team.getCity() + ", " + team.getState_prov(), true)
+                .addField("Rookie Year", String.valueOf(team.getRookie_year()), true)
                 .setColor(Bot.tbaBlue)
                 .setTimestamp(new Date().toInstant());
 
