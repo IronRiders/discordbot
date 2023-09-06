@@ -20,7 +20,7 @@ public class TBACommand extends ListenerAdapter {
         if (event.getOption("teamnumber") != null) {
             teamNumber = Objects.requireNonNull(event.getOption("teamnumber")).getAsInt();
         }
-        if (teamNumber == 4180) { event.replyEmbeds(new TeamInfo().teamInfoEmbed()).queue(); }
+        if (teamNumber == 4180) { event.replyEmbeds(new TeamInfo().teamInfoEmbed()).queue(); return; }
 
         event.replyEmbeds(tbaEmbed(teamNumber)).queue();
     }
