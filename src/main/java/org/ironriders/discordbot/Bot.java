@@ -4,6 +4,7 @@ import com.thebluealliance.api.v3.TBA;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import net.dv8tion.jda.internal.utils.JDALogger;
@@ -40,7 +41,9 @@ public class Bot {
                     new TeamInfo(),
                     new Chants(),
                     new WelcomeMessage()
-            ).build();
+            )
+            .setActivity(Activity.competing(" Crescendo!"))
+            .build();
     public static Logger logger = JDALogger.getLog("Bot");
 
     public static void main(String[] args) {
