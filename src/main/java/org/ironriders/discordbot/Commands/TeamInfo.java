@@ -7,7 +7,6 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.ironriders.discordbot.Bot;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.util.Random;
 
 public class TeamInfo extends ListenerAdapter {
@@ -21,7 +20,7 @@ public class TeamInfo extends ListenerAdapter {
     public MessageEmbed teamInfoEmbed() {
         EmbedBuilder eb = new EmbedBuilder()
                 .setTitle("Iron Riders")
-                .setThumbnail("https://bit.ly/3m8A5dC")
+                .setThumbnail(Bot.logoUrl)
                 .addField("Team Number", "4180", true)
                 .addField("Location", "Seattle, Washington", true)
                 .addField("Rookie Year", "2012", true)

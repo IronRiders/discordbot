@@ -25,6 +25,7 @@ public class WelcomeMessage extends ListenerAdapter {
                         .appendDescription("The Iron Riders discord server requires you to set your nickname. We " +
                                 "recommend you set it to your actual name, or whatever everyone at school " +
                                 "refers to you as.")
+                        .setThumbnail(Bot.logoUrl)
                         .setColor(Bot.secondary)
                 .build(),
                 new EmbedBuilder()
