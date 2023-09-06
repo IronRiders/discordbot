@@ -17,10 +17,10 @@ public class Help extends ListenerAdapter {
                         .setTitle("Help")
                         .addField("Commands",
                                 """
-                                      `/help` - Gives a key of all the commands plus how to contribute.
-                                      `/tba`- Gives some information on any team of your choosing.
-                                      `/teaminfo` - Gives some information on our team.
-                                      `/chants` - Gives a key of all the chant.
+                                      * `/help` - Retrieves a key of all the commands plus how to contribute.
+                                      * `/tba`- Retrieves some information on any team of your choosing.
+                                      * `/teaminfo` - Retrieves some information on our team.
+                                      * `/chants` - Retrieves a key of all our chants.
                                       """,
                                 false)
                         .addField("Contribute",

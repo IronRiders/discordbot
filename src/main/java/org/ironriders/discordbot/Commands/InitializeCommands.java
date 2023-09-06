@@ -11,11 +11,11 @@ public class InitializeCommands extends ListenerAdapter {
         event.getJDA().updateCommands().addCommands(
                 Commands.slash(
                         "help",
-                        "Gives a key of all the commands plus how to contribute."),
-                Commands.slash("teaminfo", "Gives some information on our team."),
-                Commands.slash("tba", "Gives some information on any team of your choosing.")
+                        "Retrieves a key of all the commands plus how to contribute."),
+                Commands.slash("tba", "Retrieves some information on any team of your choosing.")
                         .addOption(OptionType.INTEGER, "teamnumber", "Team Number", false),
-                Commands.slash("chants", "Gives a key of all the chants.")
+                Commands.slash("teaminfo", "Retrieves some information on our team."),
+                Commands.slash("chants", "Retrieves a key of all our chants.")
         ).queue();
     }
 }
