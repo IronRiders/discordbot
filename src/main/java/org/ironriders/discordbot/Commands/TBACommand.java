@@ -16,14 +16,18 @@ public class TBACommand extends ListenerAdapter {
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
         if (!event.getName().equals("tba") && !event.getName().equals("thebluealliance")) { return; }
+        event.deferReply().queue();
 
         int teamNumber = 4180;
         if (event.getOption("teamnumber") != null) {
             teamNumber = Objects.requireNonNull(event.getOption("teamnumber")).getAsInt();
         }
-        if (teamNumber == TEAM_NUMBER) { event.replyEmbeds(new TeamInfo().teamInfoEmbed()).queue(); return; }
+        if (teamNumber == TEAM_NUMBER) {
+            event.getHook().sendMessageEmbeds(new TeamInfo().teamInfoEmbed()).queue();
+            return;
+        }
 
-        event.replyEmbeds(tbaEmbed(teamNumber)).queue();
+        event.getHook().sendMessageEmbeds(tbaEmbed(teamNumber)).queue();
     }
 
     private MessageEmbed tbaEmbed(int commandTeamNumber) {

@@ -16,8 +16,9 @@ public class TeamInfo extends ListenerAdapter {
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
         if (!event.getName().equals("teaminfo")) { return; }
+        event.deferReply().queue();
 
-        event.replyEmbeds(teamInfoEmbed()).queue();
+        event.getHook().sendMessageEmbeds(teamInfoEmbed()).queue();
     }
 
     public MessageEmbed teamInfoEmbed() {
