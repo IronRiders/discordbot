@@ -3,11 +3,14 @@ package org.ironriders.discordbot;
 import com.thebluealliance.api.v3.TBA;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
+import net.dv8tion.jda.internal.utils.JDALogger;
 import org.ironriders.discordbot.Commands.*;
 import org.ironriders.discordbot.Listeners.Chants;
 import org.ironriders.discordbot.Listeners.WelcomeMessage;
+import org.slf4j.Logger;
 
 import java.awt.*;
 
@@ -37,8 +40,9 @@ public class Bot {
                     new Chants(),
                     new WelcomeMessage()
             ).build();
+    public static Logger logger = JDALogger.getLog("Bot");
 
     public static void main(String[] args) {
-        // JDALogger.getLog("Bot").info("Invite URL (ADMIN PERMS): " + jda.getInviteUrl(Permission.ADMINISTRATOR));
+        logger.info("Invite URL (ADMIN PERMS): {}", jda.getInviteUrl(Permission.ADMINISTRATOR));
     }
 }
