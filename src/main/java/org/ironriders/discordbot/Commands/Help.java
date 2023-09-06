@@ -32,6 +32,6 @@ public class Help extends ListenerAdapter {
                         .setFooter("Check out the GitHub even if you don't feel like contributing!")
                         .setTimestamp(currentInstant())
                         .build()
-        ).setEphemeral(true).queue();
+        ).queue();
     }
 }
