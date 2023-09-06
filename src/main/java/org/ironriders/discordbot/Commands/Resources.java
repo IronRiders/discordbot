@@ -4,14 +4,15 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
-import static org.ironriders.discordbot.Constants.SECONDARY;
 import static org.ironriders.discordbot.Constants.currentInstant;
+import static org.ironriders.discordbot.Constants.primary;
 
 public class Resources extends ListenerAdapter {
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
         if (!event.getName().equals("resources")) { return; }
 
+        // Team Specific
         event.replyEmbeds(new EmbedBuilder()
                         .setTitle("Resources")
                         .addField(
@@ -57,7 +58,7 @@ public class Resources extends ListenerAdapter {
                                 "Go to bot's [GitHub](https://github.com/IronRiders/discordbot) and follow" +
                                         " the contribute instructions in the `README.md`.",
                                 true)
-                        .setColor(SECONDARY)
+                        .setColor(primary())
                         .setFooter("*May be slow to load")
                         .setTimestamp(currentInstant())
                 .build()

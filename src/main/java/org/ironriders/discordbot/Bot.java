@@ -11,6 +11,7 @@ import org.ironriders.discordbot.Commands.*;
 import org.ironriders.discordbot.Listeners.Chants;
 import org.ironriders.discordbot.Listeners.WelcomeMessage;
 
+import static org.ironriders.discordbot.Constants.COMPETITION_NAME;
 import static org.ironriders.discordbot.Constants.LOGGER;
 
 public class Bot {
@@ -34,7 +35,7 @@ public class Bot {
                     new Chants(),
                     new WelcomeMessage()
             )
-            .setActivity(Activity.competing(" Crescendo!"))
+            .setActivity(Activity.competing(String.format(" %s!", COMPETITION_NAME)))
             .build();
 
     public static void main(String[] args) {

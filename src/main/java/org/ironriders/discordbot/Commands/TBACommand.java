@@ -17,13 +17,13 @@ public class TBACommand extends ListenerAdapter {
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
         if (!event.getName().equals("tba") && !event.getName().equals("thebluealliance")) { return; }
 
-        int commandTeamNumber = 4180;
+        int teamNumber = 4180;
         if (event.getOption("teamnumber") != null) {
-            commandTeamNumber = Objects.requireNonNull(event.getOption("teamnumber")).getAsInt();
+            teamNumber = Objects.requireNonNull(event.getOption("teamnumber")).getAsInt();
         }
-        if (commandTeamNumber == teamNumber) { event.replyEmbeds(new TeamInfo().teamInfoEmbed()).queue(); return; }
+        if (teamNumber == TEAM_NUMBER) { event.replyEmbeds(new TeamInfo().teamInfoEmbed()).queue(); return; }
 
-        event.replyEmbeds(tbaEmbed(commandTeamNumber)).queue();
+        event.replyEmbeds(tbaEmbed(teamNumber)).queue();
     }
 
     private MessageEmbed tbaEmbed(int commandTeamNumber) {

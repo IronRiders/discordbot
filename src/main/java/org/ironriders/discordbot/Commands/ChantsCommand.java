@@ -5,13 +5,15 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.ironriders.discordbot.Listeners.Chants;
 
-import static org.ironriders.discordbot.Constants.SECONDARY;
 import static org.ironriders.discordbot.Constants.currentInstant;
+import static org.ironriders.discordbot.Constants.primary;
 
 public class ChantsCommand extends ListenerAdapter {
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
         if (!event.getName().equals("chants")) { return; }
+
+        // Team Specific
         String claps = Chants.claps;
 
         event.replyEmbeds(
@@ -26,7 +28,7 @@ public class ChantsCommand extends ListenerAdapter {
                         .addField("41", "80", false)
                         .addField("Red/Blue Alliance! or Go Riders!", claps, false)
 
-                        .setColor(SECONDARY)
+                        .setColor(primary())
                         .setFooter("Suggestions? Do /help to see how to contribute!")
                         .setTimestamp(currentInstant())
                 .build()

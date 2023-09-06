@@ -6,6 +6,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import java.util.regex.Pattern;
 
 public class Chants extends ListenerAdapter {
+    // Team Specific
     public static String claps = "Clap:clap:! Clap:clap:! Clap:clap:, clap:clap:, clap:clap:!";
 
     @Override
