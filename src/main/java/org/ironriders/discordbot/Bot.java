@@ -35,6 +35,7 @@ public class Bot {
                     new ChantsCommand(),
                     new Help(),
                     new InitializeCommands(),
+                    new Resources(),
                     new TBACommand(),
                     new TeamInfo(),
                     new Chants(),
