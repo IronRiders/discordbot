@@ -14,7 +14,7 @@ import java.util.Objects;
 public class TBACommand extends ListenerAdapter {
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
-        if (!event.getName().equals("tba")) { return; }
+        if (!event.getName().equals("tba") && !event.getName().equals("thebluealliance")) { return; }
 
         int teamNumber = 4180;
         if (event.getOption("teamnumber") != null) {
@@ -44,10 +44,13 @@ public class TBACommand extends ListenerAdapter {
 
         if (team.getWebsite() != null) {
             eb.addField("Links",
-                "[The Blue Alliance](https://www.thebluealliance.com/team/" + teamNumber + ")\n" +
-                        "[The " + team.getNickname() + (team.getNickname().endsWith("s") ? "'" : "'s") + " Website]" +
-                        "(" + team.getWebsite() + ")",
-                true);
+                    String.format(
+                            "[The Blue Alliance Page](https://www.thebluealliance.com/team/%d)\n[The %s Website](%s)",
+                            teamNumber,
+                            team.getNickname() + (team.getNickname().endsWith("s") ? "'" : "'s"),
+                            team.getWebsite()
+                    ),
+                    true);
         }
         try {
             eb.addField("Seasons",

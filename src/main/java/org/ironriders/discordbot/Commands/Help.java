@@ -19,7 +19,7 @@ public class Help extends ListenerAdapter {
                                 """
                                       * `/help` - Retrieves a key of all the commands plus how to contribute.
                                       * `/resources` - Retrieves an embed with our teams resources.
-                                      * `/tba`- Retrieves some information on any team of your choosing.
+                                      * `/tba` or `/thebluealliance` - Retrieves some information on any team of your choosing. Uses The Blue Alliance API.
                                       * `/teaminfo` - Retrieves some information on our team.
                                       * `/chants` - Retrieves a key of all our chants.
                                       """,

@@ -13,6 +13,9 @@ public class InitializeCommands extends ListenerAdapter {
                 Commands.slash("resources", "Retrieves an embed with our teams resources."),
                 Commands.slash("tba", "Retrieves some information on any team of your choosing.")
                         .addOption(OptionType.INTEGER, "teamnumber", "Team Number", false),
+                Commands.slash("thebluealliance", "Retrieves some information on any team of your " +
+                                "choosing.")
+                        .addOption(OptionType.INTEGER, "teamnumber", "Team Number", false),
                 Commands.slash("teaminfo", "Retrieves some information on our team."),
                 Commands.slash("chants", "Retrieves a key of all our chants.")
         ).queue();
