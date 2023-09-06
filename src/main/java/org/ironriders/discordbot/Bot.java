@@ -4,6 +4,7 @@ import com.thebluealliance.api.v3.TBA;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.requests.GatewayIntent;
+import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import org.ironriders.discordbot.Commands.*;
 import org.ironriders.discordbot.Listeners.Chants;
 import org.ironriders.discordbot.Listeners.WelcomeMessage;
@@ -21,9 +22,11 @@ public class Bot {
             .createLight(
                     System.getProperty("BOT_TOKEN"),
                     GatewayIntent.GUILD_MESSAGES,
+                    GatewayIntent.GUILD_MEMBERS,
                     GatewayIntent.DIRECT_MESSAGES,
                     GatewayIntent.MESSAGE_CONTENT
             )
+            .setMemberCachePolicy(MemberCachePolicy.ALL)
             .addEventListeners(
                     new ChantsCommand(),
                     new Help(),
