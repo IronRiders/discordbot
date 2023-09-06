@@ -18,6 +18,7 @@ public class Help extends ListenerAdapter {
                         .addField("Commands",
                                 """
                                       * `/help` - Retrieves a key of all the commands plus how to contribute.
+                                      * `/resources` - Retrieves an embed with our teams resources.
                                       * `/tba`- Retrieves some information on any team of your choosing.
                                       * `/teaminfo` - Retrieves some information on our team.
                                       * `/chants` - Retrieves a key of all our chants.
