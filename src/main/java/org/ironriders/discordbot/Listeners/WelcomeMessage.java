@@ -10,9 +10,8 @@ import net.dv8tion.jda.api.interactions.components.buttons.Button;
 import net.dv8tion.jda.api.interactions.components.text.TextInput;
 import net.dv8tion.jda.api.interactions.components.text.TextInputStyle;
 import net.dv8tion.jda.api.interactions.modals.Modal;
-import org.ironriders.discordbot.Bot;
 
-import java.util.Date;
+import static org.ironriders.discordbot.Constants.*;
 
 public class WelcomeMessage extends ListenerAdapter {
     @Override
@@ -25,14 +24,14 @@ public class WelcomeMessage extends ListenerAdapter {
                         .appendDescription("The Iron Riders discord server requires you to set your nickname. We " +
                                 "recommend you set it to your actual name, or whatever everyone at school " +
                                 "refers to you as.")
-                        .setThumbnail(Bot.logoUrl)
-                        .setColor(Bot.secondary)
+                        .setThumbnail(LOGO_URL)
+                        .setColor(SECONDARY)
                 .build(),
                 new EmbedBuilder()
                         .setTitle("Set your nickname by clicking \"Set Nickname\".")
                         .setFooter("Thank you for joining")
-                        .setTimestamp(new Date().toInstant())
-                        .setColor(Bot.primary)
+                        .setTimestamp(currentInstant())
+                        .setColor(PRIMARY)
                 .build()
         ).addActionRow(
                 Button.success("setNickname", "Set Nickname")
@@ -73,9 +72,9 @@ public class WelcomeMessage extends ListenerAdapter {
                         .setTitle("Nickname modified!")
                         .appendDescription("Go to the [#start-here channel](https://discord.com/channels" +
                                 "/823694183230996490/1025621206067593326) to complete membership")
-                        .setColor(Bot.secondary)
+                        .setColor(SECONDARY)
                         .setFooter("Make sure to scroll up in the channel to see all messages")
-                        .setTimestamp(new Date().toInstant())
+                        .setTimestamp(currentInstant())
                 .build()
         ).queue();
     }

@@ -9,6 +9,8 @@ import org.ironriders.discordbot.Bot;
 import java.io.IOException;
 import java.util.Random;
 
+import static org.ironriders.discordbot.Constants.*;
+
 public class TeamInfo extends ListenerAdapter {
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
@@ -20,21 +22,25 @@ public class TeamInfo extends ListenerAdapter {
     public MessageEmbed teamInfoEmbed() {
         EmbedBuilder eb = new EmbedBuilder()
                 .setTitle("Iron Riders")
-                .setThumbnail(Bot.logoUrl)
-                .addField("Team Number", "4180", true)
+                .setThumbnail(LOGO_URL)
+                .addField("Team Number", String.valueOf(teamNumber), true)
                 .addField("Location", "Seattle, Washington", true)
                 .addField("Rookie Year", "2012", true)
                 .addField("Links",
-                        """
-                              [The Blue Alliance](https://www.thebluealliance.com/team/4180)
+                        String.format(
+                              """
+                              [The Blue Alliance](https://www.thebluealliance.com/team/%d)
                               [The Iron Riders' Website](https://ironriders4180.com/)
                               """,
+                                teamNumber
+                        ),
                         true)
-                .setColor(Bot.secondary)
-                .setFooter(getFootnote());
+                .setColor(SECONDARY)
+                .setFooter(getFootnote())
+                .setTimestamp(currentInstant());
         try {
             eb.addField("Seasons",
-                    String.valueOf(Bot.tba.teamRequest.getYearsParticipated(4180).length),
+                    String.valueOf(Bot.tba.teamRequest.getYearsParticipated(teamNumber).length),
                     true);
         } catch (IOException ignored) {}
 

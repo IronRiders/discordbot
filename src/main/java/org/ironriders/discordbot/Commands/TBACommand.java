@@ -8,45 +8,46 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.ironriders.discordbot.Bot;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.Objects;
+
+import static org.ironriders.discordbot.Constants.*;
 
 public class TBACommand extends ListenerAdapter {
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
         if (!event.getName().equals("tba") && !event.getName().equals("thebluealliance")) { return; }
 
-        int teamNumber = 4180;
+        int commandTeamNumber = 4180;
         if (event.getOption("teamnumber") != null) {
-            teamNumber = Objects.requireNonNull(event.getOption("teamnumber")).getAsInt();
+            commandTeamNumber = Objects.requireNonNull(event.getOption("teamnumber")).getAsInt();
         }
-        if (teamNumber == 4180) { event.replyEmbeds(new TeamInfo().teamInfoEmbed()).queue(); return; }
+        if (commandTeamNumber == teamNumber) { event.replyEmbeds(new TeamInfo().teamInfoEmbed()).queue(); return; }
 
-        event.replyEmbeds(tbaEmbed(teamNumber)).queue();
+        event.replyEmbeds(tbaEmbed(commandTeamNumber)).queue();
     }
 
-    private MessageEmbed tbaEmbed(int teamNumber) {
+    private MessageEmbed tbaEmbed(int commandTeamNumber) {
         Team team;
         try {
-            team = Bot.tba.teamRequest.getTeam(teamNumber);
+            team = Bot.tba.teamRequest.getTeam(commandTeamNumber);
         } catch (Exception e) {
-            return unknownTeamEmbed(teamNumber);
+            return unknownTeamEmbed(commandTeamNumber);
         }
 
         EmbedBuilder eb;
         eb = new EmbedBuilder()
                 .setTitle(team.getNickname())
-                .addField("Team Number", String.valueOf(teamNumber), true)
+                .addField("Team Number", String.valueOf(commandTeamNumber), true)
                 .addField("Location", team.getCity() + ", " + team.getState_prov(), true)
                 .addField("Rookie Year", String.valueOf(team.getRookie_year()), true)
-                .setColor(Bot.tbaBlue)
-                .setTimestamp(new Date().toInstant());
+                .setColor(TBA_BLUE)
+                .setTimestamp(currentInstant());
 
         if (team.getWebsite() != null) {
             eb.addField("Links",
                     String.format(
                             "[The Blue Alliance Page](https://www.thebluealliance.com/team/%d)\n[The %s Website](%s)",
-                            teamNumber,
+                            commandTeamNumber,
                             team.getNickname() + (team.getNickname().endsWith("s") ? "'" : "'s"),
                             team.getWebsite()
                     ),
@@ -54,7 +55,7 @@ public class TBACommand extends ListenerAdapter {
         }
         try {
             eb.addField("Seasons",
-                    String.valueOf(Bot.tba.teamRequest.getYearsParticipated(teamNumber).length),
+                    String.valueOf(Bot.tba.teamRequest.getYearsParticipated(commandTeamNumber).length),
                     true);
         } catch (IOException ignored) {}
 
@@ -64,9 +65,9 @@ public class TBACommand extends ListenerAdapter {
     private MessageEmbed unknownTeamEmbed(int teamNumber) {
         return new EmbedBuilder()
                 .setTitle("FRC team " + teamNumber + " does not exist!")
-                .setColor(Bot.tbaBlue)
+                .setColor(TBA_BLUE)
                 .setFooter("This command does not support non-frc teams")
-                .setTimestamp(new Date().toInstant())
+                .setTimestamp(currentInstant())
         .build();
     }
 }

@@ -7,23 +7,14 @@ import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
-import net.dv8tion.jda.internal.utils.JDALogger;
 import org.ironriders.discordbot.Commands.*;
 import org.ironriders.discordbot.Listeners.Chants;
 import org.ironriders.discordbot.Listeners.WelcomeMessage;
-import org.slf4j.Logger;
 
-import java.awt.*;
+import static org.ironriders.discordbot.Constants.LOGGER;
 
 public class Bot {
-    // TODO: Create a constants class
-    public static Color primary = new Color(0x213D1C);
-    public static Color secondary = new Color(0xFDC20F);
-    public static Color tbaBlue = new Color(0x3f51b5);
-    public static String logoUrl = "https://bit.ly/3m8A5dC";
-
     public static TBA tba = new TBA(System.getProperty("TBA_TOKEN"));
-
     public static JDA jda = JDABuilder
             .createLight(
                     System.getProperty("BOT_TOKEN"),
@@ -45,9 +36,8 @@ public class Bot {
             )
             .setActivity(Activity.competing(" Crescendo!"))
             .build();
-    public static Logger logger = JDALogger.getLog("Bot");
 
     public static void main(String[] args) {
-        logger.info("Invite URL (ADMIN PERMS): {}", jda.getInviteUrl(Permission.ADMINISTRATOR));
+        LOGGER.info("Invite URL (ADMIN PERMS): {}", jda.getInviteUrl(Permission.ADMINISTRATOR));
     }
 }

@@ -3,9 +3,9 @@ package org.ironriders.discordbot.Commands;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import org.ironriders.discordbot.Bot;
 
-import java.util.Date;
+import static org.ironriders.discordbot.Constants.SECONDARY;
+import static org.ironriders.discordbot.Constants.currentInstant;
 
 public class Help extends ListenerAdapter {
     @Override
@@ -28,9 +28,9 @@ public class Help extends ListenerAdapter {
                                 "Go to bot's [GitHub](https://github.com/IronRiders/discordbot) and follow" +
                                         " the contribute instructions in the `README.md`.",
                                 true)
-                        .setColor(Bot.secondary)
+                        .setColor(SECONDARY)
                         .setFooter("Check out the GitHub even if you don't feel like contributing!")
-                        .setTimestamp(new Date().toInstant())
+                        .setTimestamp(currentInstant())
                         .build()
         ).setEphemeral(true).queue();
     }
