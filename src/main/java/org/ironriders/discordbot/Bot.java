@@ -38,6 +38,6 @@ public class Bot {
             .build();
 
     public static void main(String[] args) {
-        JDALogger.getLog("Bot").info("Invite URL (ADMIN PERMS): " + jda.getInviteUrl(Permission.ADMINISTRATOR));
+        // JDALogger.getLog("Bot").info("Invite URL (ADMIN PERMS): " + jda.getInviteUrl(Permission.ADMINISTRATOR));
     }
 }
