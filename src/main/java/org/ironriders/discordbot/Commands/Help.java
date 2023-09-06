@@ -24,7 +24,7 @@ public class Help extends ListenerAdapter {
                                       """,
                                 false)
                         .addField("Contribute",
-                                "Go to bot's [GitHub](https://github.com/IronRiders/DiscordBotJDA) and follow" +
+                                "Go to bot's [GitHub](https://github.com/IronRiders/discordbot) and follow" +
                                         " the contribute instructions in the `README.md`.",
                                 true)
                         .setColor(Bot.secondary)
