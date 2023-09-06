@@ -18,7 +18,7 @@ public class Bot {
     public static TBA tba = new TBA(System.getProperty("TBA_TOKEN"));
 
     public static JDA jda = JDABuilder
-            .create(
+            .createLight(
                     System.getProperty("BOT_TOKEN"),
                     GatewayIntent.GUILD_MESSAGES,
                     GatewayIntent.DIRECT_MESSAGES,
@@ -32,8 +32,7 @@ public class Bot {
                     new TeamInfo(),
                     new Chants(),
                     new WelcomeMessage()
-            )
-            .build();
+            ).build();
 
     public static void main(String[] args) {
         // JDALogger.getLog("Bot").info("Invite URL (ADMIN PERMS): " + jda.getInviteUrl(Permission.ADMINISTRATOR));
