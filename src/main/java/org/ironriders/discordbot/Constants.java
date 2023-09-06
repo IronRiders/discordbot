@@ -14,6 +14,7 @@ public class Constants {
     public static final String TEAM_LOCATION = "Seattle, Washington";
     public static final String TEAM_WEBSITE = "https://ironriders.org";
     public static final String START_CHANNEL_URL = "https://discord.com/channels/823694183230996490/1025621206067593326";
+    public static final String GITHUB_URL = "https://github.com/IronRiders/discordbot";
     public static final String LOGO_URL = "https://bit.ly/3m8A5dC";
     public static final Color PRIMARY = new Color(0x213D1C);
     public static final Color SECONDARY = new Color(0xFDC20F);
