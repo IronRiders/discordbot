@@ -16,11 +16,12 @@ public class Bot {
     public static Color primary = new Color(0x213D1C);
     public static Color secondary = new Color(0xFDC20F);
     public static Color tbaBlue = new Color(0x3f51b5);
-    public static TBA tba = new TBA(System.getenv("TBA_TOKEN"));
+
+    public static TBA tba = new TBA(System.getProperty("TBA_TOKEN"));
 
     public static JDA jda = JDABuilder
             .create(
-                    System.getenv("BOT_TOKEN"),
+                    System.getProperty("BOT_TOKEN"),
                     GatewayIntent.GUILD_MESSAGES,
                     GatewayIntent.DIRECT_MESSAGES,
                     GatewayIntent.MESSAGE_CONTENT
