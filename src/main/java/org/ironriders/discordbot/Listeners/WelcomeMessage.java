@@ -10,29 +10,33 @@ import net.dv8tion.jda.api.interactions.components.buttons.Button;
 import net.dv8tion.jda.api.interactions.components.text.TextInput;
 import net.dv8tion.jda.api.interactions.components.text.TextInputStyle;
 import net.dv8tion.jda.api.interactions.modals.Modal;
-import org.ironriders.discordbot.Bot;
 
-import java.util.Date;
+import static org.ironriders.discordbot.Constants.*;
 
 public class WelcomeMessage extends ListenerAdapter {
     @Override
     public void onGuildMemberJoin(GuildMemberJoinEvent event) {
         if (event.getUser().isBot()) { return; }
 
+        // Team Specific
         event.getUser().openPrivateChannel().complete().sendMessageEmbeds(
                 new EmbedBuilder()
-                        .setTitle("Welcome to the Iron Riders discord server, " + event.getUser().getName() + "!")
-                        .appendDescription("The Iron Riders discord server requires you to set your nickname. We " +
-                                "recommend you set it to your actual name, or whatever everyone at school " +
-                                "refers to you as.")
-                        .setThumbnail(Bot.logoUrl)
-                        .setColor(Bot.secondary)
+                        .setTitle(String.format(
+                                "Welcome to the %s discord server, %s!",
+                                TEAM_NAME,
+                                event.getUser().getName()
+                        ))
+                        .appendDescription("The " + TEAM_NAME +" discord server requires you to set your nickname. " +
+                                "We recommend you set it to your actual name, or whatever everyone at school refers " +
+                                "to you as.")
+                        .setThumbnail(LOGO_URL)
+                        .setColor(primary())
                 .build(),
                 new EmbedBuilder()
                         .setTitle("Set your nickname by clicking \"Set Nickname\".")
                         .setFooter("Thank you for joining")
-                        .setTimestamp(new Date().toInstant())
-                        .setColor(Bot.primary)
+                        .setTimestamp(currentInstant())
+                        .setColor(secondary())
                 .build()
         ).addActionRow(
                 Button.success("setNickname", "Set Nickname")
@@ -43,6 +47,7 @@ public class WelcomeMessage extends ListenerAdapter {
     public void onButtonInteraction(ButtonInteractionEvent event) {
         if (!"setNickname".equals(event.getButton().getId())) { return; }
 
+        // Team Specific
         TextInput nickname = TextInput
                 .create("nickname", "Nickname", TextInputStyle.SHORT)
                 .setRequired(true)
@@ -62,6 +67,7 @@ public class WelcomeMessage extends ListenerAdapter {
     public void onModalInteraction(ModalInteractionEvent event) {
         if (!event.getModalId().equals("setNicknameModal")) { return; }
 
+        // Team Specific
         for (Guild g : event.getJDA().getGuilds()) {
             g.modifyNickname(
                     g.retrieveMember(event.getUser()).complete(),
@@ -71,11 +77,11 @@ public class WelcomeMessage extends ListenerAdapter {
 
         event.replyEmbeds(new EmbedBuilder()
                         .setTitle("Nickname modified!")
-                        .appendDescription("Go to the [#start-here channel](https://discord.com/channels" +
-                                "/823694183230996490/1025621206067593326) to complete membership")
-                        .setColor(Bot.secondary)
+                        .appendDescription("Go to the [#start-here channel](" + START_CHANNEL_URL + ") to complete " +
+                                "membership")
+                        .setColor(primary())
                         .setFooter("Make sure to scroll up in the channel to see all messages")
-                        .setTimestamp(new Date().toInstant())
+                        .setTimestamp(currentInstant())
                 .build()
         ).queue();
     }
