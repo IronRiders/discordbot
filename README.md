@@ -15,10 +15,15 @@ The Discord bot in the Iron Riders' discord server.
 
 Note: This bot must have message content intent enabled to function.
 
+### How to package:
+* Create a maven configuration that runs `package`.
+* Run it, the packaged `.jar` will be at `target/discordbot-VERSION-jar-with-dependencies.jar`.
+
 ### How to contribute:
 * Create a branch or fork the repository.
 * Make your changes.
 * Test your changes.
+* Change the version in the `pom.xml` file.
 * Create a pull request.
 
 ### Help:
