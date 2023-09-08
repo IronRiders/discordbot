@@ -10,7 +10,8 @@ import org.ironriders.discordbot.Bot;
 import java.io.IOException;
 import java.util.Objects;
 
-import static org.ironriders.discordbot.Constants.*;
+import static org.ironriders.discordbot.Constants.TBA_BLUE;
+import static org.ironriders.discordbot.Constants.TEAM_NUMBER;
 
 public class TBACommand extends ListenerAdapter {
     @Override
@@ -44,8 +45,7 @@ public class TBACommand extends ListenerAdapter {
                 .addField("Team Number", String.valueOf(commandTeamNumber), true)
                 .addField("Location", team.getCity() + ", " + team.getState_prov(), true)
                 .addField("Rookie Year", String.valueOf(team.getRookie_year()), true)
-                .setColor(TBA_BLUE)
-                .setTimestamp(currentInstant());
+                .setColor(TBA_BLUE);
 
         if (team.getWebsite() != null) {
             eb.addField("Links",
@@ -69,9 +69,8 @@ public class TBACommand extends ListenerAdapter {
     private MessageEmbed unknownTeamEmbed(int teamNumber) {
         return new EmbedBuilder()
                 .setTitle("FRC team " + teamNumber + " does not exist!")
+                .appendDescription("This command does not support non-frc teams")
                 .setColor(TBA_BLUE)
-                .setFooter("This command does not support non-frc teams")
-                .setTimestamp(currentInstant())
         .build();
     }
 }

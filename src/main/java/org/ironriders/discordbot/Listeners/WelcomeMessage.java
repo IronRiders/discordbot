@@ -31,12 +31,8 @@ public class WelcomeMessage extends ListenerAdapter {
                                 "to you as.")
                         .setThumbnail(LOGO_URL)
                         .setColor(primary())
-                .build(),
-                new EmbedBuilder()
-                        .setTitle("Set your nickname by clicking \"Set Nickname\".")
-                        .setFooter("Thank you for joining")
+                        .setFooter("Set your nickname by clicking \"Set Nickname\"")
                         .setTimestamp(currentInstant())
-                        .setColor(secondary())
                 .build()
         ).addActionRow(
                 Button.success("setNickname", "Set Nickname")

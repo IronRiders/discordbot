@@ -17,7 +17,7 @@ public class Roster extends ListenerAdapter {
         // Team Specific
         ReplyCallbackAction message = event.replyEmbeds(
                 new EmbedBuilder()
-                        .setTitle("Roster")
+                        .setTitle("Team Roster")
                         .appendDescription("If you haven't already, fill out the " +
                                 "[roster](https://ironriders.org/roster). It is important that you fill out this " +
                                 "form as accurately as possible because this is how we keep track of our team and " +
