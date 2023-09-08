@@ -11,6 +11,7 @@ import org.ironriders.discordbot.Commands.InitializeCommands;
 import org.ironriders.discordbot.Commands.InstructionalCommands.ChantsCommand;
 import org.ironriders.discordbot.Commands.InstructionalCommands.Help;
 import org.ironriders.discordbot.Commands.InstructionalCommands.Resources;
+import org.ironriders.discordbot.Commands.InstructionalCommands.Roster;
 import org.ironriders.discordbot.Commands.TBACommand;
 import org.ironriders.discordbot.Commands.TeamInfo;
 import org.ironriders.discordbot.Listeners.Chants;
@@ -36,6 +37,7 @@ public class Bot {
                     new InitializeCommands(),
                     new Resources(),
                     new TBACommand(),
+                    new Roster(),
                     new TeamInfo(),
                     new Chants(),
                     new WelcomeMessage()

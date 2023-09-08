@@ -19,6 +19,8 @@ public class InitializeCommands extends ListenerAdapter {
                 // Instructional Commands
                 Commands.slash("help", "Retrieves a key of all the commands plus how to contribute."),
                 Commands.slash("resources", "Retrieves an embed with our teams resources."),
+                Commands.slash("roster", "Provides instructions on complete ones membership.")
+                        .addOption(OptionType.MENTIONABLE, "notify", "Member to notify", false),
                 Commands.slash("chants", "Retrieves a key of all our chants.")
         ).queue();
     }
