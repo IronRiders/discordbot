@@ -4,6 +4,7 @@ import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
+import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 
 public class InitializeCommands extends ListenerAdapter {
     @Override
@@ -21,6 +22,17 @@ public class InitializeCommands extends ListenerAdapter {
                 Commands.slash("resources", "Retrieves an embed with our teams resources."),
                 Commands.slash("roster", "Provides instructions on complete ones membership.")
                         .addOption(OptionType.MENTIONABLE, "notify", "Member to notify", false),
+                Commands.slash("schedule", "Provides a schedule for the selected department.")
+                        .addOptions(
+                                new OptionData(
+                                        OptionType.STRING,
+                                        "department",
+                                        "Department",
+                                        true
+                                )
+                                        .addChoice("Software Department", "software")
+                                        .addChoice("Build Department", "build")
+                        ),
                 Commands.slash("chants", "Retrieves a key of all our chants.")
         ).queue();
     }

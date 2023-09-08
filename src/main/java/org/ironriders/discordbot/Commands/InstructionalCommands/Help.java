@@ -24,7 +24,9 @@ public class Help extends ListenerAdapter {
                         .addField("Instructional Commands",
                                 """
                                       * `/help` - Retrieves a key of all the commands plus how to contribute.
+                                      * `/schedule` - Retrieves the schedule of the selected department.
                                       * `/resources` - Retrieves an embed with our teams resources.
+                                      * `/roster` - Provides instructions on complete ones membership.
                                       * `/chants` - Retrieves a key of all our chants.
                                       """,
                                 false)
