@@ -26,7 +26,7 @@ public class WelcomeMessage extends ListenerAdapter {
                                 TEAM_NAME,
                                 event.getUser().getName()
                         ))
-                        .appendDescription("The " + TEAM_NAME +" discord server requires you to set your nickname. " +
+                        .appendDescription("The " + TEAM_NAME + " discord server requires you to set your nickname. " +
                                 "We recommend you set it to your actual name, or whatever everyone at school refers " +
                                 "to you as.")
                         .setThumbnail(LOGO_URL)
@@ -77,11 +77,10 @@ public class WelcomeMessage extends ListenerAdapter {
 
         event.replyEmbeds(new EmbedBuilder()
                         .setTitle("Nickname modified!")
-                        .appendDescription("Go to the [#start-here channel](" + START_CHANNEL_URL + ") to complete " +
-                                "membership")
+                        .appendDescription("Fill out our [roster](https://ironriders.org/roster), then go to the " +
+                                "[#start-here channel](" + START_CHANNEL_URL + ") and notify us so we can give you " +
+                                "the `Members` role.")
                         .setColor(primary())
-                        .setFooter("Make sure to scroll up in the channel to see all messages")
-                        .setTimestamp(currentInstant())
                 .build()
         ).queue();
     }
