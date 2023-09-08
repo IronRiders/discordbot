@@ -1,4 +1,4 @@
-package org.ironriders.discordbot.Commands;
+package org.ironriders.discordbot.Commands.InstructionalCommands;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
@@ -16,10 +16,15 @@ public class Help extends ListenerAdapter {
                         .setTitle("Help")
                         .addField("Commands",
                                 """
-                                      * `/help` - Retrieves a key of all the commands plus how to contribute.
-                                      * `/resources` - Retrieves an embed with our teams resources.
                                       * `/tba` or `/thebluealliance` - Retrieves some information on any team of your choosing. Uses The Blue Alliance API.
                                       * `/teaminfo` - Retrieves some information on our team.
+                                      * `/chants` - Retrieves a key of all our chants.
+                                      """,
+                                false)
+                        .addField("Instructional Commands",
+                                """
+                                      * `/help` - Retrieves a key of all the commands plus how to contribute.
+                                      * `/resources` - Retrieves an embed with our teams resources.
                                       * `/chants` - Retrieves a key of all our chants.
                                       """,
                                 false)

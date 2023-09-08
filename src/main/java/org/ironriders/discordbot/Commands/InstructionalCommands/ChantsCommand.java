@@ -1,4 +1,4 @@
-package org.ironriders.discordbot.Commands;
+package org.ironriders.discordbot.Commands.InstructionalCommands;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
