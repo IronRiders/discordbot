@@ -18,7 +18,7 @@ public class Schedule extends ListenerAdapter {
         OptionMapping department = event.getOption("department");
         assert department != null;
         EmbedBuilder eb = new EmbedBuilder()
-                .setTitle(StringUtils.capitalize(department.getAsString()) + " Department Schedule")
+                .setTitle(StringUtils.capitalize(department.getAsString()) + " Department Meetings Schedule")
                 .setColor(primary());
 
         switch (department.getAsString()) {
