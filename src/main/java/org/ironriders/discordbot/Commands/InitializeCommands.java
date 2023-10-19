@@ -32,6 +32,8 @@ public class InitializeCommands extends ListenerAdapter {
                                 )
                                         .addChoice("Software Department", "software")
                                         .addChoice("Build Department", "build")
+                                        .addChoice("Design/CAD Department", "cad")
+                                        .addChoice("Drive Team", "drive")
                         ),
                 Commands.slash("chants", "Retrieves a key of all our chants.")
         ).queue();

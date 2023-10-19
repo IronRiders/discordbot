@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import java.awt.*;
 import java.time.Instant;
 import java.util.Date;
+import java.util.TimeZone;
 
 public class Constants {
     // Team Specific
@@ -16,6 +17,7 @@ public class Constants {
     public static final String START_CHANNEL_URL = "https://discord.com/channels/823694183230996490/1025621206067593326";
     public static final String GITHUB_URL = "https://github.com/IronRiders/discordbot";
     public static final String LOGO_URL = "https://bit.ly/3m8A5dC";
+    public static final TimeZone timeZone = TimeZone.getTimeZone("America/Los_Angeles");
     public static final Color PRIMARY = new Color(0x213D1C);
     public static final Color SECONDARY = new Color(0xFDC20F);
     private static final boolean USE_SECONDARY_AS_EMBED_PRIMARY = true;
