@@ -22,6 +22,7 @@ public class Chants extends ListenerAdapter {
         if (Pattern.matches("(?i)(red|blue) alliance[!,.]*?|(?i)go riders[!,.]*?", message)) {
             send(claps, event); return; }
         if (Pattern.matches("41", message)) { send("80", event); }
+        if (Pattern.matches("(?i)what do we ride[?]*?", message)) { send("Uh, Iron?", event); return; }
     }
     private void send(String message, MessageReceivedEvent event) {
         event.getChannel().sendMessage(message).queue();
