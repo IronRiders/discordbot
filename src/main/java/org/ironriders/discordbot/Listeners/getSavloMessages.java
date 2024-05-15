@@ -17,7 +17,7 @@ import net.dv8tion.jda.api.requests.restaction.pagination.MessagePaginationActio
 import net.dv8tion.jda.api.utils.FileUpload;
 
 @SuppressWarnings("unused")
-class getSavloMessages extends ListenerAdapter {
+public class getSavloMessages extends ListenerAdapter {
     private static final String TARGET_USER_ID = "775852592093593600";
     private List<Message> messages = new ArrayList<>();
 
