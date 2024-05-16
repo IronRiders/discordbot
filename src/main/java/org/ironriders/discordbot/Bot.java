@@ -58,8 +58,7 @@ private static String APIKey=getFile("C:/Users/tyler/OneDrive/Documents/authenti
 
           CommandListUpdateAction commands = jda.updateCommands();
           commands.addCommands(
-                Commands.slash("kill", "peacefully euthanize the bot"),
-                Commands.slash("fetchMessages", "start fetching salvos messages for ai training")
+                Commands.slash("kill", "peacefully euthanize the bot")
 
           );
     }
