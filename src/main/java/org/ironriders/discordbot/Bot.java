@@ -48,4 +48,4 @@ public class Bot {
     public static void main(String[] args) {
         LOGGER.info("Invite URL (ADMIN PERMS): {}", jda.getInviteUrl(Permission.ADMINISTRATOR));
     }
-}
+} 
