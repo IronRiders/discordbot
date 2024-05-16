@@ -19,6 +19,7 @@ import org.ironriders.discordbot.Listeners.getSavloMessages;
 import static org.ironriders.discordbot.Constants.COMPETITION_NAME;
 import static org.ironriders.discordbot.Constants.LOGGER;
 
+@SuppressWarnings("unused")
 public class Bot {
 private static String APIKey=getFile("C:/Users/tyler/OneDrive/Documents/authentication/APIToken.txt");
     public static TBA tba = new TBA(APIKey);

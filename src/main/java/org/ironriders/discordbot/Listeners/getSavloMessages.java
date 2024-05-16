@@ -29,15 +29,17 @@ public class getSavloMessages extends ListenerAdapter {
             event.getChannel().sendMessage("Starting fetching messages from user ID: " + TARGET_USER_ID+" (Salvo)").queue();
             fetchAllMessages(event.getGuild());
             event.getChannel().sendMessage("Finished fetching messages from user ID: " + TARGET_USER_ID+" (Salvo)").queue();
+            saveMessagesToFile("dataset.txt", messages);
+            event.getChannel().sendMessage("Messages have been saved to dataset.txt").queue();
+            sendDatasetAsAttachment(event.getChannel(), "dataset.txt");
         } else if (messageContent.equalsIgnoreCase("!saveDataset")) {
             saveMessagesToFile("dataset.txt", messages);
             event.getChannel().sendMessage("Messages have been saved to dataset.txt").queue();
             sendDatasetAsAttachment(event.getChannel(), "dataset.txt");
         }
         else if(messageContent.equalsIgnoreCase("test")){
-            event.getChannel().sendMessage("hello "+event.getAuthor().getName()+"!").queue();
+            event.getChannel().sendMessage("Hello "+event.getAuthor().getEffectiveName()+"!").queue();
         }
-        messages.add(event.getMessage());
     }
 
     public void fetchAllMessages(Guild guild) {

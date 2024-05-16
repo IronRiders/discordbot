@@ -2,7 +2,7 @@ package org.ironriders.discordbot.Listeners;
 
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.regex.Pattern;
 
 public class Chants extends ListenerAdapter {
@@ -16,7 +16,16 @@ public class Chants extends ListenerAdapter {
         String message = event.getMessage().getContentRaw().toLowerCase();
         if (Pattern.matches("(?i)who rides[?]*?", message)) { send("We ride!", event); return; }
         if (Pattern.matches("(?i)who are we[?]*?", message)) { send("Iron Riders!", event); return; }
-        if (Pattern.matches("(?i)how hungry[?]*?", message)) { send("Famished!", event); return; }
+        if (Pattern.matches("(?i)how hungry[?]*?", message)) { 
+            int randomNum = ThreadLocalRandom.current().nextInt(0, 20 + 1);
+            if(randomNum!=0){
+            send("Famished!", event); 
+            }
+            else{
+                send("I'm fine thanks", event); 
+            }
+            return; 
+        }
         if (Pattern.matches("(?i)for what[?]*?", message)) { send("Victory!", event); return; }
         if (Pattern.matches("(?i)iron", message)) { send("Riders!", event); return; }
         if (Pattern.matches("(?i)(red|blue) alliance[!,.]*?|(?i)go riders[!,.]*?", message)) {
