@@ -7,10 +7,10 @@ import java.nio.file.Paths;
 public class SlashCommands extends ListenerAdapter {
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
-        
+        //THIS FILE IS TEMPORARY
         switch (event.getName()){
             case "kill" ->{
-                String[] testingUsers={"Tyler","Misha"};
+                String[] testingUsers={"Tyler","Misha","Liam S"};
                 Boolean ok=false;
                 for (var user :testingUsers){
                     if(user == event.getMember().getNickname()){

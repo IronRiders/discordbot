@@ -20,7 +20,7 @@ import org.ironriders.discordbot.Listeners.Chants;
 import org.ironriders.discordbot.Listeners.SlashCommands;
 import org.ironriders.discordbot.Listeners.WelcomeMessage;
 import org.ironriders.discordbot.Listeners.getSavloMessages;
-import org.ironriders.discordbot.Listeners.SlashCommands;
+import org.ironriders.discordbot.Listeners.SlashCommands; //TEMPORARY
 
 import static org.ironriders.discordbot.Constants.COMPETITION_NAME;
 import static org.ironriders.discordbot.Constants.LOGGER;
@@ -52,10 +52,10 @@ private static String APIKey=getFile("C:/Users/"+username+"/OneDrive/Documents/a
                     new Chants(),
                     new WelcomeMessage(),
                     new getSavloMessages(),
-                    new SlashCommands()
+                    new SlashCommands() //TEMP
             )
            // .setActivity(Activity.competing(String.format(" %s!", COMPETITION_NAME)))
-           .setActivity(Activity.competing(String.format("Undergoing upgrades! I will cut for a while")))
+           .setActivity(Activity.competing(String.format("Undergoing upgrades! I will cut for a while"))) //TEMP
             .build();
 
     public static void main(String[] args) {
@@ -64,9 +64,9 @@ private static String APIKey=getFile("C:/Users/"+username+"/OneDrive/Documents/a
           CommandListUpdateAction commands = jda.updateCommands();
           commands.addCommands(
                 Commands.slash("kill", "peacefully euthanize the bot"),
-                Commands.slash("GetToken","gets the bot tokem").setDefaultPermissions(DefaultMemberPermissions.DISABLED)
+                Commands.slash("GetToken","gets the bot token").setDefaultPermissions(DefaultMemberPermissions.DISABLED)
 
-          );
+          ); //temp
     }
     public static String getFile(String path){
         
@@ -79,5 +79,5 @@ private static String APIKey=getFile("C:/Users/"+username+"/OneDrive/Documents/a
                 }
             
             
-    }
+    }//Temp
 }
