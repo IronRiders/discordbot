@@ -6,6 +6,7 @@ import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Activity;
+import net.dv8tion.jda.api.interactions.commands.DefaultMemberPermissions;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.requests.GatewayIntent;
@@ -24,9 +25,10 @@ import static org.ironriders.discordbot.Constants.LOGGER;
 
 @SuppressWarnings("unused")
 public class Bot {
-private static String APIKey=getFile("C:/Users/tyler/OneDrive/Documents/authentication/APIToken.txt");
+        static String username = System.getProperty("user.name");
+private static String APIKey=getFile("C:/Users/"+username+"/OneDrive/Documents/authentication/APIToken.txt");
     public static TBA tba = new TBA(APIKey);
-    static String ID=getFile("C:/Users/tyler/OneDrive/Documents/authentication/botToken.txt");
+    static String ID=getFile("C:/Users/"+username+"/OneDrive/Documents/authentication/botToken.txt");
     public static JDA jda = JDABuilder
             .createLight(
                     ID,
@@ -58,7 +60,8 @@ private static String APIKey=getFile("C:/Users/tyler/OneDrive/Documents/authenti
 
           CommandListUpdateAction commands = jda.updateCommands();
           commands.addCommands(
-                Commands.slash("kill", "peacefully euthanize the bot")
+                Commands.slash("kill", "peacefully euthanize the bot"),
+                Commands.slash("GetToken","gets the bot tokem").setDefaultPermissions(DefaultMemberPermissions.DISABLED)
 
           );
     }
