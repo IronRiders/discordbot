@@ -42,7 +42,7 @@ public class getSavloMessages extends ListenerAdapter {
         }
     }
 
-    public void fetchAllMessages(Guild guild) {
+     public void fetchAllMessages(Guild guild) {
         for (TextChannel channel : guild.getTextChannels()) {
             if(!channel.canTalk()){
                 continue;
@@ -117,4 +117,5 @@ public class getSavloMessages extends ListenerAdapter {
             channel.sendMessage("Failed to send the dataset file. Unable to find file").queue();
         }
     }
+
 }

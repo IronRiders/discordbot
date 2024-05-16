@@ -6,7 +6,10 @@ import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Activity;
+import net.dv8tion.jda.api.interactions.commands.OptionType;
+import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.requests.GatewayIntent;
+import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import org.ironriders.discordbot.Commands.InitializeCommands;
 import org.ironriders.discordbot.Commands.InstructionalCommands.*;
@@ -52,6 +55,13 @@ private static String APIKey=getFile("C:/Users/tyler/OneDrive/Documents/authenti
 
     public static void main(String[] args) {
         LOGGER.info("Invite URL (ADMIN PERMS): {}", jda.getInviteUrl(Permission.ADMINISTRATOR));
+
+          CommandListUpdateAction commands = jda.updateCommands();
+          commands.addCommands(
+                Commands.slash("kill", "peacefully euthanize the bot"),
+                Commands.slash("fetchMessages", "start fetching salvos messages for ai training")
+
+          );
     }
     public static String getFile(String path){
         
