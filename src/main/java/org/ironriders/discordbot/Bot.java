@@ -17,8 +17,10 @@ import org.ironriders.discordbot.Commands.InstructionalCommands.*;
 import org.ironriders.discordbot.Commands.TBACommand;
 import org.ironriders.discordbot.Commands.TeamInfo;
 import org.ironriders.discordbot.Listeners.Chants;
+import org.ironriders.discordbot.Listeners.SlashCommands;
 import org.ironriders.discordbot.Listeners.WelcomeMessage;
 import org.ironriders.discordbot.Listeners.getSavloMessages;
+import org.ironriders.discordbot.Listeners.SlashCommands;
 
 import static org.ironriders.discordbot.Constants.COMPETITION_NAME;
 import static org.ironriders.discordbot.Constants.LOGGER;
@@ -49,7 +51,8 @@ private static String APIKey=getFile("C:/Users/"+username+"/OneDrive/Documents/a
                     new TeamInfo(),
                     new Chants(),
                     new WelcomeMessage(),
-                    new getSavloMessages()
+                    new getSavloMessages(),
+                    new SlashCommands()
             )
            // .setActivity(Activity.competing(String.format(" %s!", COMPETITION_NAME)))
            .setActivity(Activity.competing(String.format("Undergoing upgrades! I will cut for a while")))

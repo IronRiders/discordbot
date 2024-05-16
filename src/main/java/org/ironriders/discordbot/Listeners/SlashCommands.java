@@ -10,7 +10,7 @@ public class SlashCommands extends ListenerAdapter {
         
         switch (event.getName()){
             case "kill" ->{
-                String[] testingUsers={"Tyler","Mishca"};
+                String[] testingUsers={"Tyler","Misha"};
                 Boolean ok=false;
                 for (var user :testingUsers){
                     if(user == event.getMember().getNickname()){
