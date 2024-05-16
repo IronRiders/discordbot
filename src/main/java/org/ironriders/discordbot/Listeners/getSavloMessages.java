@@ -26,7 +26,7 @@ public class getSavloMessages extends ListenerAdapter {
         String messageContent = event.getMessage().getContentRaw();
         if (messageContent.equalsIgnoreCase("!fetchMessages")) {
             fetchAllMessages(event.getGuild());
-            event.getChannel().sendMessage("Started fetching messages from user ID: " + TARGET_USER_ID).queue();
+            event.getChannel().sendMessage("Started fetching messages from user ID: " + TARGET_USER_ID+"(salvo)").queue();
         } else if (messageContent.equalsIgnoreCase("!saveDataset")) {
             saveMessagesToFile("dataset.txt", messages);
             event.getChannel().sendMessage("Messages have been saved to dataset.txt").queue();
