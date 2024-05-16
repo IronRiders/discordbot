@@ -17,7 +17,7 @@ public class Chants extends ListenerAdapter {
         if (Pattern.matches("(?i)who rides[?]*?", message)) { send("We ride!", event); return; }
         if (Pattern.matches("(?i)who are we[?]*?", message)) { send("Iron Riders!", event); return; }
         if (Pattern.matches("(?i)how hungry[?]*?", message)) { 
-            int randomNum = ThreadLocalRandom.current().nextInt(0, 20 + 1);
+            int randomNum = ThreadLocalRandom.current().nextInt(0, 250 + 1);
             if(randomNum!=0){
             send("Famished!", event); 
             }
