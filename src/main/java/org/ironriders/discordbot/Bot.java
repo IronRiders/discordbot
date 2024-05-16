@@ -46,7 +46,7 @@ private static String APIKey=getFile("C:/Users/tyler/OneDrive/Documents/authenti
                     new getSavloMessages()
             )
            // .setActivity(Activity.competing(String.format(" %s!", COMPETITION_NAME)))
-           .setActivity(Activity.competing(String.format("Undergoing upgrades! I will cut out regularly for a little while")))
+           .setActivity(Activity.competing(String.format("Undergoing upgrades! I will cut for a while")))
             .build();
 
     public static void main(String[] args) {

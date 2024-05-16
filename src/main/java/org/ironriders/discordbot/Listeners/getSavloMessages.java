@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Message;
@@ -16,7 +17,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.requests.restaction.pagination.MessagePaginationAction;
 import net.dv8tion.jda.api.utils.FileUpload;
 
-@SuppressWarnings("unused")
+
 public class getSavloMessages extends ListenerAdapter {
     private static final String TARGET_USER_ID = "775852592093593600";
     private List<Message> messages = new ArrayList<>();
@@ -35,32 +36,46 @@ public class getSavloMessages extends ListenerAdapter {
         }
         else if(messageContent.equalsIgnoreCase("test")){
             event.getChannel().sendMessage("hello "+event.getAuthor().getName()+"!").queue();
-            
         }
         messages.add(event.getMessage());
     }
 
     public void fetchAllMessages(Guild guild) {
         for (TextChannel channel : guild.getTextChannels()) {
+            System.out.println("Starting to search: " + channel.getName());
             MessagePaginationAction messagesAction = channel.getIterableHistory();
             messagesAction.forEachAsync(message -> {
+                
                 if (message.getAuthor().getId().equals(TARGET_USER_ID)) {
                     messages.add(message);
                     System.out.println("Found message: " + message.getContentDisplay());
+                } else {
+                    System.out.println("Other users message found: " + message.getAuthor().getEffectiveName() + " From: " + message.getTimeCreated()+" In: "+message.getChannel());
                 }
-                else{
-                    System.out.println("Other users message found: "+message.getAuthor().getEffectiveName()+" From: "+message.getTimeCreated());
+                try {
+                    TimeUnit.MILLISECONDS.sleep(10);   
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
+                
                 return true; // Continue fetching
+            
+            
             }).exceptionally(throwable -> {
                 throwable.printStackTrace();
-                System.out.println("error");
                 return null;
-            });
-            System.out.println("Starting to search: "+channel.getName());
+            }).orTimeout(3, TimeUnit.MINUTES);
+            
+            // Ensure rate limits are respected
+            try {
+                TimeUnit.SECONDS.sleep(1); // Adjust the delay as necessary
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
         System.out.println("Done!");
     }
+    
 
     public void saveMessagesToFile(String fileName, List<Message> messages) {
         try (FileWriter writer = new FileWriter(fileName)) {
@@ -73,7 +88,7 @@ public class getSavloMessages extends ListenerAdapter {
                             priorMessage.getContentRaw(),
                             priorMessage.getChannel().getName());
                 }
-                writer.write(String.format("%s%n%s: %s%n%n",
+                writer.append(String.format("%s%n%s: %s%n%n",
                         context,
                         currentMessage.getAuthor().getName(),
                         currentMessage.getContentDisplay()));
