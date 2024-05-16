@@ -13,7 +13,6 @@ import org.ironriders.discordbot.Commands.TBACommand;
 import org.ironriders.discordbot.Commands.TeamInfo;
 import org.ironriders.discordbot.Listeners.Chants;
 import org.ironriders.discordbot.Listeners.WelcomeMessage;
-import org.ironriders.discordbot.Listeners.getSavloMessages;
 
 import static org.ironriders.discordbot.Constants.COMPETITION_NAME;
 import static org.ironriders.discordbot.Constants.LOGGER;
@@ -39,8 +38,7 @@ public class Bot {
                     new TBACommand(),
                     new TeamInfo(),
                     new Chants(),
-                    new WelcomeMessage(),
-                    new getSavloMessages()
+                    new WelcomeMessage()
             )
             .setActivity(Activity.competing(String.format(" %s!", COMPETITION_NAME)))
             .build();
