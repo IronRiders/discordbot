@@ -25,12 +25,17 @@ public class getSavloMessages extends ListenerAdapter {
     public void onMessageReceived(MessageReceivedEvent event) {
         String messageContent = event.getMessage().getContentRaw();
         if (messageContent.equalsIgnoreCase("!fetchMessages")) {
+            event.getChannel().sendMessage("Starting fetching messages from user ID: " + TARGET_USER_ID+" (Salvo)").queue();
             fetchAllMessages(event.getGuild());
-            event.getChannel().sendMessage("Started fetching messages from user ID: " + TARGET_USER_ID+"(salvo)").queue();
+            event.getChannel().sendMessage("Finished fetching messages from user ID: " + TARGET_USER_ID+" (Salvo)").queue();
         } else if (messageContent.equalsIgnoreCase("!saveDataset")) {
             saveMessagesToFile("dataset.txt", messages);
             event.getChannel().sendMessage("Messages have been saved to dataset.txt").queue();
             sendDatasetAsAttachment(event.getChannel(), "dataset.txt");
+        }
+        else if(messageContent.equalsIgnoreCase("test")){
+            event.getChannel().sendMessage("hello "+event.getAuthor().getName()+"!").queue();
+            
         }
         messages.add(event.getMessage());
     }
@@ -43,12 +48,18 @@ public class getSavloMessages extends ListenerAdapter {
                     messages.add(message);
                     System.out.println("Found message: " + message.getContentDisplay());
                 }
+                else{
+                    System.out.println("Other users message found: "+message.getAuthor().getEffectiveName()+" From: "+message.getTimeCreated());
+                }
                 return true; // Continue fetching
             }).exceptionally(throwable -> {
                 throwable.printStackTrace();
+                System.out.println("error");
                 return null;
             });
+            System.out.println("Starting to search: "+channel.getName());
         }
+        System.out.println("Done!");
     }
 
     public void saveMessagesToFile(String fileName, List<Message> messages) {
@@ -59,7 +70,7 @@ public class getSavloMessages extends ListenerAdapter {
                 if (i > 0) {
                     Message priorMessage = messages.get(i - 1);
                     context = String.format("Context: Sent by %s in #%s%n",
-                            priorMessage.getAuthor().getName(),
+                            priorMessage.getContentRaw(),
                             priorMessage.getChannel().getName());
                 }
                 writer.write(String.format("%s%n%s: %s%n%n",
