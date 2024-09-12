@@ -18,10 +18,10 @@ import static org.ironriders.discordbot.Constants.COMPETITION_NAME;
 import static org.ironriders.discordbot.Constants.LOGGER;
 
 public class Bot {
-    public static TBA tba = new TBA(System.getProperty("TBA_TOKEN"));
+    public static TBA tba = new TBA(System.getenv("TBA_TOKEN"));
     public static JDA jda = JDABuilder
             .createLight(
-                    System.getProperty("BOT_TOKEN"),
+                    System.getenv("BOT_TOKEN"),
                     GatewayIntent.GUILD_MESSAGES,
                     GatewayIntent.GUILD_MEMBERS,
                     GatewayIntent.DIRECT_MESSAGES,
