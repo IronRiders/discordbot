@@ -13,7 +13,7 @@ public class InitializeCommands extends ListenerAdapter {
         event.getJDA().updateCommands().addCommands(
                 Commands.slash("tba", "Retrieves some information on any team of your choosing.")
                         .addOption(OptionType.INTEGER, "teamnumber", "Team Number", false)
-                        .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.)),
+                        .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.VIEW_CHANNEL)),
                 Commands.slash("thebluealliance", "Retrieves some information on any team of your " +
                                 "choosing.")
                         .addOption(OptionType.INTEGER, "teamnumber", "Team Number", false)
