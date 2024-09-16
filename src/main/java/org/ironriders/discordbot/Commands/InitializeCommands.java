@@ -5,7 +5,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
-import net.dv8tion.jda.api.interactions.commands.*;
+import net.dv8tion.*;
 
 public class InitializeCommands extends ListenerAdapter {
     @Override
@@ -13,7 +13,7 @@ public class InitializeCommands extends ListenerAdapter {
         event.getJDA().updateCommands().addCommands(
                 Commands.slash("tba", "Retrieves some information on any team of your choosing.")
                         .addOption(OptionType.INTEGER, "teamnumber", "Team Number", false)
-                        .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.VIEW_CHANNEL)),
+                        .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.)),
                 Commands.slash("thebluealliance", "Retrieves some information on any team of your " +
                                 "choosing.")
                         .addOption(OptionType.INTEGER, "teamnumber", "Team Number", false)
