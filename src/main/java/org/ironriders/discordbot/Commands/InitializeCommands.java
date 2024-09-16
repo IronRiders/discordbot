@@ -5,7 +5,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
-import net.dv8tion.jda.apt.*;
+import net.dv8tion.jda.api.*;
 
 public class InitializeCommands extends ListenerAdapter {
     @Override
