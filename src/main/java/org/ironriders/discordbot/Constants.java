@@ -23,7 +23,7 @@ public class Constants {
     private static final boolean USE_SECONDARY_AS_EMBED_PRIMARY = true;
 
     // Year Specific
-    public static final String COMPETITION_NAME = "Crescendo";
+    public static final String COMPETITION_NAME = "Reefscape";
 
     public static final Color TBA_BLUE = new Color(0x3f51b5);
     public static final Logger LOGGER = JDALogger.getLog("Bot");
