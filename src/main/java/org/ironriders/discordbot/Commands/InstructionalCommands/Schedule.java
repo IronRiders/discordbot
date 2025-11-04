@@ -26,86 +26,80 @@ public class Schedule extends ListenerAdapter {
         switch (department.getAsString()) {
             case "software" -> {
                 eb.addField(
-                        "Monday",
-                        String.format(
-                                "From %s to %s, but may continue to as late as %s.",
-                                getNext(MONDAY, 15, 50),
-                                getNext(MONDAY, 17, 0),
-                                getNext(MONDAY, 17, 30)
-                        ),
-                        false
-                ).addField(
-                        "Tuesday",
-                        String.format(
-                                "From %s to %s, but may continue to as late as %s.\n" +
-                                        "This meeting is optional; there wont be curriculum.",
-                                getNext(MONDAY, 15, 50),
-                                getNext(MONDAY, 17, 0),
-                                getNext(MONDAY, 17, 30)
+                        "Mondays",
+                        fromToText(
+                                MONDAY, 15, 40,
+                                MONDAY, 17, 0
                         ),
                         false
                 ).addField(
                         "Wednesdays",
-                        String.format(
-                                "From %s to %s, but may continue to as late as %s.",
-                                getNext(WEDNESDAY, 14, 30),
-                                getNext(WEDNESDAY, 15, 40),
-                                getNext(WEDNESDAY, 17, 30)
+                        fromToText(
+                                WEDNESDAY, 14, 25,
+                                WEDNESDAY, 16, 30
                         ),
                         false
                 ).addField(
-                        "Thursday",
-                        String.format(
-                                "From %s to %s, but may continue to as late as %s.",
-                                getNext(MONDAY, 15, 50),
-                                getNext(MONDAY, 17, 0),
-                                getNext(MONDAY, 17, 30)
+                        "Thursdays",
+                        fromToText(
+                                THURSDAY, 15, 40,
+                                THURSDAY, 17, 0
                         ),
                         false
                 );
             }
             case "build" -> {
                 eb.addField(
-                        "Mondays",
-                        String.format(
-                                "From %s to %s, but may continue to as late as %s.",
-                                getNext(MONDAY, 15, 50),
-                                getNext(MONDAY, 17, 0),
-                                getNext(MONDAY, 17, 30)
+                        "Tuesdays",
+                        fromToText(
+                                MONDAY, 15, 40,
+                                MONDAY, 17, 0
                         ),
                         false
                 ).addField(
                         "Wednesdays",
-                        String.format(
-                                "From %s to %s, but may continue to as late as %s.",
-                                getNext(WEDNESDAY, 14, 30),
-                                getNext(WEDNESDAY, 16, 0),
-                                getNext(WEDNESDAY, 17, 30)
-                        ),
-                        false
-                );
-            }
-            case "cad" -> {
-                eb.setDescription("TBD");
-            }
-            case "drive" -> {
-                eb.setTitle(
-                        "Drive Team Meeting Schedule"
-                ).addField(
-                        "Tuesdays",
                         fromToText(
-                                MONDAY, 15, 50,
-                                MONDAY, 17, 0
+                                WEDNESDAY, 14, 25,
+                                WEDNESDAY, 16, 30
                         ),
                         false
                 ).addField(
                         "Thursdays",
                         fromToText(
-                                THURSDAY, 15, 50,
+                                THURSDAY, 15, 40,
                                 THURSDAY, 17, 0
                         ),
                         false
                 );
+            }
+            case "cad" -> {
+                eb.addField(
+                        "Mondays",
+                        fromToText(
+                                MONDAY, 15, 40,
+                                MONDAY, 17, 0
+                        ),
+                        false
+                ).addField(
+                        "Wednesdays",
+                        fromToText(
+                                WEDNESDAY, 14, 25,
+                                WEDNESDAY, 16, 30
+                        ),
+                        false
+                ).addField(
+                        "Fridays",
+                        fromToText(
+                                FRIDAY, 15, 40,
+                                FRIDAY, 17, 0
+                        ),
+                        false
+                );
+            }
+            case "drive" -> {
+                eb.setTitle(
+                        "Drive Team Meeting Schedule"
+                ).setDescription("Sorry this team has not yet been updated. Please ask your director");
             }
         }
 
