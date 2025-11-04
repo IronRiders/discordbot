@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
 
 import lombok.Value;
@@ -27,8 +28,8 @@ public class DataRequest {
 	 * @return An {@link APIResponse} object with the API's response
 	 */
 	public APIResponse getDataTBA(String urlDirectory) throws IOException {
-		URL url;
-		url = new URL(TBA_BASE_URL + urlDirectory);
+		URI uri = URI.create(TBA_BASE_URL + urlDirectory);
+		URL url = uri.toURL();
 		HttpURLConnection con = (HttpURLConnection) url.openConnection();
 		con.addRequestProperty(HEADER_AUTH, AUTH_KEY);
 		return getData(con);
@@ -72,7 +73,8 @@ public class DataRequest {
 	 * @return An {@link APIResponse} object with the API's response
 	 */
 	public APIResponse getDataTBA(String urlDirectory, String ifModifiedSince) throws IOException {
-		URL url = new URL(TBA_BASE_URL + urlDirectory);
+		URI uri = URI.create(TBA_BASE_URL + urlDirectory);
+		URL url = uri.toURL();
 		HttpURLConnection con = (HttpURLConnection) url.openConnection();
 		con.addRequestProperty(HEADER_AUTH, AUTH_KEY);
 		con.addRequestProperty(HEADER_MODIFIED, ifModifiedSince);
