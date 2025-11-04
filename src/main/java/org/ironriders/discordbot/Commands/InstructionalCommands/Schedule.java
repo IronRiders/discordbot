@@ -73,7 +73,28 @@ public class Schedule extends ListenerAdapter {
                 );
             }
             case "cad" -> {
-                eb.setDescription("Sorry this department has not yet been updated. Please ask your director");
+                eb.addField(
+                        "Mondays",
+                        fromToText(
+                                MONDAY, 15, 40,
+                                MONDAY, 17, 0
+                        ),
+                        false
+                ).addField(
+                        "Wednesdays",
+                        fromToText(
+                                WEDNESDAY, 14, 25,
+                                WEDNESDAY, 16, 30
+                        ),
+                        false
+                ).addField(
+                        "Fridays",
+                        fromToText(
+                                FRIDAY, 15, 40,
+                                FRIDAY, 17, 0
+                        ),
+                        false
+                );
             }
             case "drive" -> {
                 eb.setTitle(
