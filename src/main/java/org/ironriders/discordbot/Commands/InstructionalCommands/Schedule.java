@@ -99,7 +99,7 @@ public class Schedule extends ListenerAdapter {
             case "drive" -> {
                 eb.setTitle(
                         "Drive Team Meeting Schedule"
-                ).setDescription("Sorry this team has not yet been updated. Please ask your director");
+                ).setDescription("Sorry, this schedule has not yet been updated. Please ask your director");
             }
         }
 
