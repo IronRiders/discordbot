@@ -1,6 +1,6 @@
 services:
   discordbot:
-  container_name: ironriders-discordbot
+    container_name: discordbot
     image: "ghcr.io/ironriders/discordbot:main"
     environment:
       BOT_TOKEN: ${BOT_TOKEN}
