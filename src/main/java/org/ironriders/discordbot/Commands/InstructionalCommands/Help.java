@@ -30,6 +30,12 @@ public class Help extends ListenerAdapter {
                                       * `/chants` - Retrieves a key of all our chants.
                                       """,
                                 false)
+                        .addField("Fun Commands",
+                        """
+                                * `/estrogen` - get an pill of estrogen :3
+                                * `/fox` - get an picure of a fox!
+                                """,
+                        false)
                         .addField("Contribute",
                                 "Go to bot's [GitHub](" + GITHUB_URL + ") and follow the contribute " +
                                         "instructions in the `README.md`.",

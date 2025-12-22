@@ -21,6 +21,7 @@ public class Constants {
     public static final Color PRIMARY = new Color(0x213D1C);
     public static final Color SECONDARY = new Color(0xFDC20F);
     private static final boolean USE_SECONDARY_AS_EMBED_PRIMARY = true;
+    public static final String ADMIN_ROLE_ID= "1452542909663412377";
 
     // Year Specific
     public static final String COMPETITION_NAME = "Reefscape";

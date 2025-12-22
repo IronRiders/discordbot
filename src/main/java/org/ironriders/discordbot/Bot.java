@@ -11,6 +11,9 @@ import org.ironriders.discordbot.Commands.InitializeCommands;
 import org.ironriders.discordbot.Commands.InstructionalCommands.*;
 import org.ironriders.discordbot.Commands.TBACommand;
 import org.ironriders.discordbot.Commands.TeamInfo;
+import org.ironriders.discordbot.Commands.AdminCommands.Stop;
+import org.ironriders.discordbot.Commands.FunCommands.Estrogen;
+import org.ironriders.discordbot.Commands.FunCommands.Fox;
 import org.ironriders.discordbot.Listeners.Chants;
 import org.ironriders.discordbot.Listeners.WelcomeMessage;
 
@@ -38,7 +41,10 @@ public class Bot {
                     new TBACommand(),
                     new TeamInfo(),
                     new Chants(),
-                    new WelcomeMessage()
+                    new WelcomeMessage(),
+                    new Stop(),
+                    new Estrogen(),
+                    new Fox()
             )
             .setActivity(Activity.competing(String.format(" %s!", COMPETITION_NAME)))
             .build();

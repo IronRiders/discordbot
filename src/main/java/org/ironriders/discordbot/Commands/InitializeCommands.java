@@ -6,7 +6,7 @@ import net.dv8tion.jda.api.interactions.commands.DefaultMemberPermissions;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
-
+import static org.ironriders.discordbot.Constants.LOGGER;
 public class InitializeCommands extends ListenerAdapter {
     @Override
     public void onReady(ReadyEvent event) {
@@ -43,7 +43,18 @@ public class InitializeCommands extends ListenerAdapter {
                         )
                         .setDefaultPermissions(DefaultMemberPermissions.ENABLED),
                 Commands.slash("chants", "Retrieves a key of all our chants.")
+                .setDefaultPermissions(DefaultMemberPermissions.ENABLED),
+
+                //Fun commands
+                Commands.slash("estrogen", "estrogen :3")
+                .setDefaultPermissions(DefaultMemberPermissions.ENABLED),
+                Commands.slash("fox", "Get a random fox from https://randomfox.ca/")
+                .setDefaultPermissions(DefaultMemberPermissions.ENABLED),
+
+                //Admin commands
+                Commands.slash("stop", "Kill the bot. This is a last resort command if the hoster is not contactable and should be avoided")
                 .setDefaultPermissions(DefaultMemberPermissions.ENABLED)
         ).queue();
+        LOGGER.info("Command init");
     }
 }
