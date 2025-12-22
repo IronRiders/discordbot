@@ -18,9 +18,9 @@ public class Estrogen extends ListenerAdapter {
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
         if (!event.getName().equals("estrogen")) { return; }
-        LOGGER.info("Command ran");
-        try (InputStream file = new FileInputStream("./estrogen.png")) {
-            event.replyFiles(FileUpload.fromData(file, "./estrogen.png")).queue();
+        try  {
+            InputStream file = new FileInputStream("/assets/estrogen.png");
+            event.replyFiles(FileUpload.fromData(file, "estrogen.png")).queue();
         } catch (IOException e) {
             e.printStackTrace();
             LOGGER.info("ERROR CAN'T FIND IMAGE!!??");
